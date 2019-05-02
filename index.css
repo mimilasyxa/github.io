@@ -6,7 +6,7 @@
 }
 
 html , body {
-    height: 100%;
+    height: 100vh;
 }
 
 header {
@@ -22,7 +22,8 @@ header p {
 }
 
 .container {
-    border: 1px solid white;
+    max-width: 1980px;
+    min-width: 1000px;
     width: 90%;
     margin: 5% 5% 0% 5%;
     height:100%;
@@ -36,11 +37,11 @@ header p {
 }
 
 .button {
+    border:.01px solid white;
     background: lightgrey;
     float: left;
     width: 18%;
     height: 100%;
-    border: 1px solid white;
 
 }
 
@@ -53,11 +54,11 @@ header p {
 }
 
 .buttonInside {
+    border:.01px solid white;
     display:none;
     background: lightgrey;
     width: 100%;
     height: 100%;
-    border: 1px solid white;
 }
 
 .buttonInside:hover{
@@ -71,34 +72,64 @@ header p {
 }
 
 input {
-    font-size: 30px;
+    font-size: 25px;
     width: 100%;
     height: 100%;
 }
 
 .main {
+    display: flex;
     overflow: auto;
-    border: 1px solid pink;
     padding-bottom: 50px;
 }
 
-.leftMain {
+.leftContent {
     text-align: center;
     margin-top: 5%;
     width: 40%;
     height: 100%;
-    border: 1px black solid;
+
 }
 
-.leftMain img {
+.leftContent img {
     width: 250px;
     height: 250px;
     float: right;
 }
 
+.rightContent {
+    text-align: center;
+    margin-top: 5%;
+    width: 60%;
+    height: 100%;
+
+}
+
+.inside{
+    float:left;
+    width: 50%;
+    height: 100%;
+}
+
+.inside img {
+    width: 200px;
+    height: 200px;
+}
+
 footer {
+    display: flex;
+    padding-left: 20px;
+    color:white;
+    list-style: square;
+
     background: black;
-    height: 40px;
+    height: 90px;
     width: 90%;
     margin: 0 5% 0 5%;
+}
+
+footer img {
+    margin: 1% 20%;
+    width: 100px;
+    height: 50px;
 }
