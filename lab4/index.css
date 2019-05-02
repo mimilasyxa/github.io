@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/*Топ с header*/
+.top{
+    position: relative;
+    width: 100%;
+    height: 12%;
+
+}
+
+.top:after{
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 6px;
+    background-color: red;
+    top:100%;
+}
+
+/*Основная часть*/
+.container {
+    width: 100%;
+    max-width: 1980px;
+    min-width: 800px;
+
+    height: 100vh;
+
+    border:1px solid black;
+}
+
+/*Меню навигации*/
+nav {
+    background: rgb(255, 202, 149);
+    width: 17%;
+    height: 80%;
+}
+
+.links {
+    margin: 5px 0 0 10px;
+    width: 100px;
+    text-transform: uppercase;
+    flex-direction: column;
+    display: flex;
+    padding: 10px 0 0 15px ;
+
+}
+
+a {
+    color: rgb(255, 163, 63);
+    border-top: 2px rgb(255, 163, 63) solid;
+    width: auto;
+    padding: 10px 0 10px 0;
+
+}
+/*Форма ввода и кнопка*/
+input {
+    margin-left: 2px;
+}
+
+button {
+    width: 55px;
+    height: 25px;
+    background-color:rgb(255, 153, 153);
+    color: white;
+}
+
+
+
+/*Подвал*/
+footer {
+    background-color: rgb(255, 153, 153);
+    width: 100%;
+    height: 8%;
+}
+
+footer p {
+    color: white;
+    padding: 2px 0 0 15px;
+}
