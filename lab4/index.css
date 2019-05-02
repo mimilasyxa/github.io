@@ -37,7 +37,7 @@
 nav {
     background: rgb(255, 202, 149);
     width: 17%;
-    height: 80%;
+    height: 100%;
 }
 
 .links {
@@ -51,10 +51,11 @@ nav {
 }
 
 a {
+    margin-top: 5px;
     color: rgb(255, 163, 63);
     border-top: 2px rgb(255, 163, 63) solid;
     width: auto;
-    padding: 10px 0 10px 0;
+    padding: 5px 0 10px 0;
 
 }
 /*Форма ввода и кнопка*/
@@ -69,7 +70,18 @@ button {
     color: white;
 }
 
+/*Часть с контентом*/
+.important_part {
+    width: 100%;
+    height: 83%;
+    display: flex;
+}
 
+.main {
+    width: 83%;
+    height: 100%;
+    background: black;
+}
 
 /*Подвал*/
 footer {
