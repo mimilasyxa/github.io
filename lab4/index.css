@@ -22,6 +22,13 @@
     top:100%;
 }
 
+.top h1 {
+    font-weight: 100;
+    font-size: 40px;
+    padding-right:10px;
+    text-align: end;
+}
+
 /*Основная часть*/
 .container {
     width: 100%;
@@ -29,8 +36,6 @@
     min-width: 800px;
 
     height: 100vh;
-
-    border:1px solid black;
 }
 
 /*Меню навигации*/
@@ -60,7 +65,7 @@ a {
 }
 /*Форма ввода и кнопка*/
 input {
-    margin-left: 2px;
+    margin-left: 4px;
 }
 
 button {
@@ -73,20 +78,38 @@ button {
 /*Часть с контентом*/
 .important_part {
     width: 100%;
-    height: 83%;
+    height: 120%;
     display: flex;
 }
 
 .main {
+    flex-direction: column;
+    display: flex;
     width: 83%;
     height: 100%;
-    background: black;
 }
 
+.main h1 {
+
+    color:rgb(255, 202, 149);
+    padding:10px 0 0 0 ;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.main img {
+    width: 180px;
+    height: 180px;
+    margin:20px 30px 50px 40px;
+}
+
+.main ul {
+    width: 10%;
+}
 /*Подвал*/
 footer {
     background-color: rgb(255, 153, 153);
-    width: 100%;
+    width: auto;
     height: 8%;
 }
 
