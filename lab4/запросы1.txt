@@ -1,0 +1,27 @@
+select * from products 
+where product_price > 850 and product_price < 5000 and product_provider like "%Алиса%" // 1
+
+select * from products
+where year(now()) - year(product_arrival_date) < 1.5  // 2
+
+select product_type , product_quantity from products // 3
+
+select product_name ,
+	product_provider ,
+	product_price
+    from products
+where product_expire_date < now()  // 4
+
+select * from products 
+where product_provider like "%Новосибирск%" and product_manufacturing_date < "2015-07-10" //5
+
+select * from products 
+where product_arrival_date - product_manufacturing_date < 10 // 8
+
+select * from products 
+where product_arrival_date > "2016-08-31" and product_arrival_date < "2016-12-00" and product_name like "_____" // 9
+
+select LEFT(product_name, 3) ,
+	product_price,
+    dayname(product_arrival_date)
+    from products  // 10
