@@ -7,7 +7,7 @@ colours = [ "black", "white" , "green" , "yellow"];
 let gH = canvas.height = window.innerHeight;
     gW =canvas.width = window.innerWidth;
 
-if (gH < 1000 && gW < 1400){
+if (gH < 1000 || gW < 1400){
     raduis=200;
     triToCir=200;
 }
