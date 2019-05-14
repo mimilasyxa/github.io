@@ -11,8 +11,8 @@ let gH = canvas.height,
 
 
 if (gH < 900 || gW < 1300){
-    triToCir=300;
-    CircRad = 300;
+    triToCir=270;
+    CircRad = 270;
 }
 
 window.requestAnimationFrame(draw);
