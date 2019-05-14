@@ -25,7 +25,11 @@ function triangle(){
 }
 
 function sectors() {
+    for (let i=0 ; i<=2 ; i+=0.20){
+    ctx.arc(gW/2,gH/2,400,0,Math.PI*i,false);   
     ctx.lineTo(gW/2,gH/2);
-    ctx.arc(gW/2,gH/2,400,0,Math.PI/13);
-    ctx.lineTo(gW/2,gH/2);
+    }
+    ctx.translate(gW/2,gH/2);
+    ctx.rotate(Math.PI/180);
+    ctx.translate(-gW/2,-gH/2);
 }
