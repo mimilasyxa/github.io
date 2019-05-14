@@ -1,6 +1,6 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext('2d');
-var CircRadius = 400;
+var CircRad = 400;
 var triToCir = 400;
 
 canvas.height = document.documentElement.clientHeight;
@@ -10,9 +10,9 @@ let gH = canvas.height,
     gW = canvas.width;
 
 
-if (gH < 900 || gW < 1200){
+if (gH < 900 || gW < 1300){
     triToCir=300;
-    CircRaduis = 300;
+    CircRad = 300;
 }
 
 window.requestAnimationFrame(draw);
@@ -36,7 +36,7 @@ function triangle(){
 
 function sectors() {
     for (let i=0 ; i<=2 ; i+=0.20){
-        ctx.arc(gW/2,gH/2,CircRadius,0,Math.PI*i,false);   
+        ctx.arc(gW/2,gH/2,CircRad,0,Math.PI*i,false);   
         ctx.lineTo(gW/2,gH/2);
     }
     ctx.translate(gW/2,gH/2);
