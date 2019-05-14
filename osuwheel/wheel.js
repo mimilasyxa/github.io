@@ -11,7 +11,7 @@ function draw() {
 ctx.clearRect(0,0,10000,10000);
 triangle();
 ctx.beginPath();
-sectors();
+setTimeout(sectors(),1000);
 ctx.stroke();
 window.requestAnimationFrame(draw);
 }
