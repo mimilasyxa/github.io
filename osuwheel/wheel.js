@@ -3,7 +3,7 @@ var ctx = canvas.getContext('2d');
 var CircRad = 400;
 var triToCir = 400;
 
-canvas.height = document.documentElement.clientHeight;
+canvas.height = document.documentElement.clientHeight -20;
 canvas.width = document.documentElement.clientWidth;
 
 let gH = canvas.height,
@@ -18,11 +18,11 @@ if (gH < 900 || gW < 1300){
 window.requestAnimationFrame(draw);
 function draw() {
 ctx.clearRect(0,0,10000,10000);
+triangle();
 ctx.beginPath();
 results();
 sectors();
 ctx.stroke();
-triangle();
 window.requestAnimationFrame(draw);
 }
 
