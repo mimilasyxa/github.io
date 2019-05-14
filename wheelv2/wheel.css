@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body , html {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    font-size: 6.501em;
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+
+ul:before {
+    left:0;
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 1px;
+    background:black;
+}
+
+
+ul:after {
+    left:0;
+    bottom:0;
+    position: absolute;
+    content:"";
+    width: 100%;
+    height: 1px;
+    background:black;
+}
+
+ul:hover {
+    text-decoration-line: line-through;
+}
