@@ -2,3 +2,20 @@
     padding: 0;
     margin: 0;
 }
+
+.container {
+    margin: auto;
+    margin-top: 3%;
+    width: 40%;
+}
+
+#triangle {
+    margin: 0 0 52% 0;
+}
+
+#wheel {
+    height: 700px;
+    width: 700px;
+    margin-bottom: 9.5%;
+    transition: transform 1s linear;
+}
