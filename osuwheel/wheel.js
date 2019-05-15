@@ -2,7 +2,7 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext('2d');
 var CircRad = 400;
 var triToCir = 400;
-var stdHeight = 1080;
+var stdHeight = 966;
 var stdWidth = 1920;
 
 canvas.height = document.documentElement.clientHeight -20;
@@ -10,10 +10,10 @@ canvas.width = document.documentElement.clientWidth;
 
 let gH = canvas.height,
     gW = canvas.width;
-    scale = stdHeight - gH;
+    scaleH = stdHeight - gH;
 
-triToCir=400 * (scale * 0.00746);
-CircRad = 400* (scale * 0.00746);
+triToCir=400 - scaleH;
+CircRad = 400 - scaleH;
 
 window.requestAnimationFrame(draw);
 function draw() {
