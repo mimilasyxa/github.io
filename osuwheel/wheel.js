@@ -12,10 +12,8 @@ let gH = canvas.height,
     gW = canvas.width;
     scale = stdHeight - gH;
 
-if (gH < 900 || gW < 1300){
-    triToCir=270 * (scale * 0.00746);
-    CircRad = 270* (scale * 0.00746);
-}
+triToCir=400 * (scale * 0.00746);
+CircRad = 400* (scale * 0.00746);
 
 window.requestAnimationFrame(draw);
 function draw() {
