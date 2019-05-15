@@ -2,17 +2,19 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext('2d');
 var CircRad = 400;
 var triToCir = 400;
+var stdHeight = 1080;
+var stdWidth = 1920;
 
 canvas.height = document.documentElement.clientHeight -20;
 canvas.width = document.documentElement.clientWidth;
 
 let gH = canvas.height,
     gW = canvas.width;
-
+    scale = stdHeight - gH;
 
 if (gH < 900 || gW < 1300){
-    triToCir=270;
-    CircRad = 270;
+    triToCir=270 * (scale * 0.00746);
+    CircRad = 270* (scale * 0.00746);
 }
 
 window.requestAnimationFrame(draw);
@@ -40,10 +42,9 @@ function sectors() {
         ctx.lineTo(gW/2,gH/2);
     }
     ctx.translate(gW/2,gH/2);
-    ctx.rotate(Math.PI/180);
+    ctx.rotate(Math.PI/270);
     ctx.translate(-gW/2,-gH/2);
 }
-
 
 function results(){
     ctx.font = "24px serif";
