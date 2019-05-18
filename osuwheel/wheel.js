@@ -5,5 +5,5 @@ wheel.setAttribute('style','transform:rotate(' +rand +'deg)');
 
 
 setInterval(function(){
-    alert("КАМИК СОСИ ХУЙ");
+    alert("КАМИК СОСИ ХУЙ , IF AMALGAM READ THIS VI VON");
 },1000);
