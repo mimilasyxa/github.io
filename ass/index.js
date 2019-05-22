@@ -29,7 +29,7 @@ class Circle {
     }
 
 }
-for (var i=0;i<15;i++)
+for (var i=0;i<25;i++)
 circles[i] = new Circle(100 + i*20,100 + i*20,100 ,2,2)
 
 window.requestAnimationFrame(drawing)
