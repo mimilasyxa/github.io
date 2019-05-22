@@ -29,8 +29,8 @@ class Circle {
     }
 
 }
-for (var i=0;i<6;i++)
-circles[i] = new Circle(100 + i*10,100 + i*10,100 - i,2,2)
+for (var i=0;i<15;i++)
+circles[i] = new Circle(100 + i*20,100 + i*20,100 ,2,2)
 
 window.requestAnimationFrame(drawing)
 function drawing(){
@@ -38,7 +38,7 @@ function drawing(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle = "rgb(200,0,0)";  
 ctx.beginPath();
-for (let i = 0; i<6 ; i++){
+for (let i = 0; i<circles.length ; i++){
     circles[i].update();
 }
 ctx.closePath();
