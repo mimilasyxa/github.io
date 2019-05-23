@@ -9,6 +9,10 @@ html,body {
     width: 100%;
 }
 
+canvas {
+    height: 100%;
+}
+
 .container {
     background: white;
     position: absolute;
