@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var circles = [];
-var colours = ["black","white","green","yellow","purple","rose"];
+var colours = ["black","white","green","yellow","purple","rose","orange"];
 
 
 canvas.height = document.documentElement.clientHeight;
@@ -16,7 +16,7 @@ class Circle {
         this.raduis = radius;
         this.dx = dx;
         this.dy = dy;
-        ctx.fillStyle = colours[Math.round(Math.random()*10)];  
+        ctx.fillStyle = colours[Math.round(Math.random()*10)];
     }
     draw(){
         ctx.arc(this.xCoord,this.yCoord,this.raduis,0,Math.PI*2);
@@ -38,7 +38,7 @@ class Circle {
 
 }
 for (var i=0;i<300;i++)
-circles[i] = new Circle(giveW(),giveH(),Math.random()*30,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
+circles[i] = new Circle(giveW(),giveH(),Math.random()*40,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
 
 window.requestAnimationFrame(drawing)
 function drawing(){
