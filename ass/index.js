@@ -35,7 +35,7 @@ class Circle {
     }
 
 }
-for (var i=0;i<200;i++)
+for (var i=0;i<300;i++)
 circles[i] = new Circle(giveW(),giveH(),Math.random()*30,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
 
 window.requestAnimationFrame(drawing)
