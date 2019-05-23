@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var circles = [];
 
+
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 
@@ -21,7 +22,11 @@ class Circle {
     update(){
         this.xCoord = this.xCoord + this.dx;
         this.yCoord = this.yCoord + this.dy;
+        ctx.fillStyle = "rgb(200,0,0)";  
+        ctx.beginPath();
         this.draw(this.xCoord,this.yCoord);
+        ctx.closePath();
+        ctx.stroke();
         if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width){
         this.dx = -this.dx; 
         }
@@ -37,13 +42,9 @@ window.requestAnimationFrame(drawing)
 function drawing(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle = "rgb(200,0,0)";  
-ctx.beginPath();
 for (let i = 0; i<circles.length ; i++){
     circles[i].update();
 }
-ctx.closePath();
-ctx.stroke();
 window.requestAnimationFrame(drawing)
 }
 
