@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var circles = [];
+var colours = ["black","white","green","yellow","purple","rose"];
 
 
 canvas.height = document.documentElement.clientHeight;
@@ -15,6 +16,7 @@ class Circle {
         this.raduis = radius;
         this.dx = dx;
         this.dy = dy;
+        ctx.fillStyle = colours[Math.round(Math.random()*10)];  
     }
     draw(){
         ctx.arc(this.xCoord,this.yCoord,this.raduis,0,Math.PI*2);
@@ -22,16 +24,16 @@ class Circle {
     update(){
         this.xCoord = this.xCoord + this.dx;
         this.yCoord = this.yCoord + this.dy;
-        ctx.fillStyle = "rgb(200,0,0)";  
         ctx.beginPath();
         this.draw(this.xCoord,this.yCoord);
-        ctx.closePath();
-        ctx.stroke();
         if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width){
         this.dx = -this.dx; 
         }
         if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
         this.dy = -this.dy;
+        ctx.fill();
+        ctx.closePath();
+        ctx.stroke();
     }
 
 }
