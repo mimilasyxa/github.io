@@ -30,8 +30,8 @@ class Circle {
     }
 
 }
-for (var i=0;i<35;i++)
-circles[i] = new Circle(100 + i*20,100 + i*20,100 - i ,5,5)
+for (var i=0;i<70;i++)
+circles[i] = new Circle(giveW(),giveH(),100,(Math.random() - 0.5) * 5,(Math.random() - 0.5) * 5);
 
 window.requestAnimationFrame(drawing)
 function drawing(){
@@ -45,4 +45,20 @@ for (let i = 0; i<circles.length ; i++){
 ctx.closePath();
 ctx.stroke();
 window.requestAnimationFrame(drawing)
+}
+
+function giveW(){
+    do {
+        var W = (Math.random() * 400 * 1.5);
+    }
+    while(W + 100> canvas.width || W - 100 < 0)
+    return W;
+}
+
+function giveH(){
+    do {
+        var H = (Math.random() * 400);
+    }
+    while(H + 100> canvas.height || H - 100 < 0)
+    return H;
 }
