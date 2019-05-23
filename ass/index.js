@@ -22,15 +22,16 @@ class Circle {
         this.xCoord = this.xCoord + this.dx;
         this.yCoord = this.yCoord + this.dy;
         this.draw(this.xCoord,this.yCoord);
-        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
-        this.dx = -this.dx;
+        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width){
+        this.dx = -this.dx; 
+        }
         if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
         this.dy = -this.dy;
     }
 
 }
 for (var i=0;i<35;i++)
-circles[i] = new Circle(100 + i*20,100 + i*20,100 - i ,2,2)
+circles[i] = new Circle(100 + i*20,100 + i*20,100 - i ,5,5)
 
 window.requestAnimationFrame(drawing)
 function drawing(){
