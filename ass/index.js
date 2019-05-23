@@ -50,7 +50,7 @@ window.requestAnimationFrame(drawing)
 
 function giveW(){
     do {
-        var W = (Math.random() * 400 * 1.5);
+        var W = (Math.random() * 300 * 1.5);
     }
     while(W + 100> canvas.width || W - 100 < 0)
     return W;
