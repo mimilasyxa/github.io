@@ -15,10 +15,18 @@ class Circle {
         this.raduis = radius;
         this.dx = dx;
         this.dy = dy;
+        ctx.fillStyle = getRGB();
+    }
+    collisionD(){
+        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
+        this.dx = -this.dx; 
+        if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
+        this.dy = -this.dy;
     }
     draw(){
         ctx.lineTo(this.xCoord,this.yCoord);
-        ctx.lineTo(this.xCoord,this.yCoord + this.raduis);
+        ctx.lineTo(this.xCoord - this.raduis/1.5, this.yCoord - this.raduis/1.5);
+        ctx.lineTo(this.xCoord , this.yCoord + this.raduis/1.5);
         ctx.arc(this.xCoord,this.yCoord,this.raduis,0,Math.PI*2);
     }
     update(){
@@ -26,19 +34,16 @@ class Circle {
         this.yCoord = this.yCoord + this.dy;
         ctx.beginPath();
         this.draw(this.xCoord,this.yCoord);
-        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
-            this.dx = -this.dx; 
-        if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
-            this.dy = -this.dy;
+        this.collisionD();
         ctx.fill();
         ctx.closePath();
         ctx.stroke();
     }
 
 }
-ctx.fillStyle = getRGB();
-for (var i=0;i<300;i++)
-    circles[i] = new Circle(giveW(),giveH(),Math.random()*40,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
+
+for (var i=0;i<200;i++)
+    circles[i] = new Circle(giveW(),giveH(),Math.random()*40,(Math.random() - 0.5) * 10,(Math.random() - 0.5) * 10);
 
 window.requestAnimationFrame(drawing)
 function drawing(){
