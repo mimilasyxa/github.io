@@ -18,10 +18,14 @@ class Circle {
         this.style = getRGB();
     }
     collisionD(){
-        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
+        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width){
         this.dx = -this.dx; 
-        if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
+        this.style = getRGB();
+        }
+        if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height){
         this.dy = -this.dy;
+        this.style = getRGB();
+        }
     }
     draw(){
         ctx.fillStyle = this.style;
