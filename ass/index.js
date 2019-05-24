@@ -1,8 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var circles = [];
-var colours = ["black","white","green","yellow","purple","rose","orange"];
-
+var r,g,b;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -16,9 +15,10 @@ class Circle {
         this.raduis = radius;
         this.dx = dx;
         this.dy = dy;
-        ctx.fillStyle = colours[Math.round(Math.random()*10)];
     }
     draw(){
+        ctx.lineTo(this.xCoord,this.yCoord);
+        ctx.lineTo(this.xCoord,this.yCoord + this.raduis);
         ctx.arc(this.xCoord,this.yCoord,this.raduis,0,Math.PI*2);
     }
     update(){
@@ -26,33 +26,32 @@ class Circle {
         this.yCoord = this.yCoord + this.dy;
         ctx.beginPath();
         this.draw(this.xCoord,this.yCoord);
-        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width){
-        this.dx = -this.dx; 
-        }
+        if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
+            this.dx = -this.dx; 
         if (this.yCoord - this.raduis < 0 || this.yCoord + this.raduis > canvas.height)
-        this.dy = -this.dy;
+            this.dy = -this.dy;
         ctx.fill();
         ctx.closePath();
         ctx.stroke();
     }
 
 }
+ctx.fillStyle = getRGB();
 for (var i=0;i<300;i++)
-circles[i] = new Circle(giveW(),giveH(),Math.random()*40,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
+    circles[i] = new Circle(giveW(),giveH(),Math.random()*40,(Math.random() - 0.5) * 8,(Math.random() - 0.5) * 8);
 
 window.requestAnimationFrame(drawing)
 function drawing(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-for (let i = 0; i<circles.length ; i++){
-    circles[i].update();
-}
-window.requestAnimationFrame(drawing)
-}
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (let i = 0; i<circles.length ; i++){
+        circles[i].update();    
+    }
+    window.requestAnimationFrame(drawing)
+    }
 
 function giveW(){
     do {
-        var W = (Math.random() * 300 * 1.5);
+        var W = (Math.random() * 1000 * 1.6);
     }
     while(W + 100> canvas.width || W - 100 < 0)
     return W;
@@ -60,8 +59,15 @@ function giveW(){
 
 function giveH(){
     do {
-        var H = (Math.random() * 400 * 1.5);
+        var H = (Math.random() * 1000);
     }
     while(H + 100> canvas.height || H - 100 < 0)
     return H;
+}
+
+function getRGB(){
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
+    return ["rgb(" + r + "," + g + "," + b + ")"];
 }

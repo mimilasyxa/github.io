@@ -11,17 +11,6 @@ html,body {
 }
 
 canvas {
-    height: 105%;
+    height: 100%;
     width: 100%;
-}
-
-.container {
-    background: white;
-    position: absolute;
-    top: 0px;
-    margin: 5% 10% 0 10%;
-    height: 95%;
-    width: 80%;
-    z-index: 2;
-    border:0.1px solid black;
 }
