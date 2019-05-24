@@ -15,7 +15,7 @@ class Circle {
         this.raduis = radius;
         this.dx = dx;
         this.dy = dy;
-        ctx.fillStyle = getRGB();
+        this.style = getRGB();
     }
     collisionD(){
         if (this.xCoord - this.raduis < 0 || this.xCoord + this.raduis > canvas.width)
@@ -24,6 +24,7 @@ class Circle {
         this.dy = -this.dy;
     }
     draw(){
+        ctx.fillStyle = this.style;
         ctx.lineTo(this.xCoord,this.yCoord);
         ctx.lineTo(this.xCoord - this.raduis/1.5, this.yCoord - this.raduis/1.5);
         ctx.lineTo(this.xCoord , this.yCoord + this.raduis/1.5);
