@@ -60,7 +60,7 @@ class Circle {
 for (let i=0;i<50;i++){
     let x = giveW();
     let y = giveH();
-    let radius  = Math.floor(Math.random() * (40 - 10)) + 10;
+    let radius  = Math.floor(Math.random() * (30 - 10)) + 10;
     if (i > 0){
         for (let j = 0 ; j<circles.length;j++){
             if (distance(x ,y , circles[j].xCoord, circles[j].yCoord) - (radius + circles[j].radius)< 0){
