@@ -18,7 +18,7 @@ class Circle {
             y: (Math.random() - 0.5) * 10,
         };
         this.style = getRGB();
-        this.mass = 1 + this.radius/50;
+        this.mass = this.radius/10 + Math.floor(Math.random()+ (9 - 3) + 3);
     }
     collisionD(){
         if (this.xCoord - this.radius < 0 || this.xCoord + this.radius > canvas.width){
