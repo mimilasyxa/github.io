@@ -112,15 +112,6 @@ function distance(x1 ,y1 ,x2 ,y2){
     return [Math.sqrt(Math.pow(xDistance,2)+Math.pow(yDistance,2))];
 }
 
-/**
- * Rotates coordinate system for velocities
- *
- * Takes velocities and alters them as if the coordinate system they're on was rotated
- *
- * @param  Object | velocity | The velocity of an individual particle
- * @param  Float  | angle    | The angle of collision between two objects in radians
- * @return Object | The altered x and y velocities after the coordinate system has been rotated
- */
 
 function rotate(velocity, angle) {
     const rotatedVelocities = {
@@ -131,14 +122,6 @@ function rotate(velocity, angle) {
     return rotatedVelocities;
 }
 
-/**
- * Swaps out two colliding particles' x and y velocities after running through
- * an elastic collision reaction equation
- *
- * @param  Object | particle      | A particle object with x and y coordinates, plus velocity
- * @param  Object | otherParticle | A particle object with x and y coordinates, plus velocity
- * @return Null | Does not return a value
- */
 
 function resolveCollision(particle, otherParticle) {
     const xVelocityDiff = particle.velocity.x - otherParticle.velocity.x;
