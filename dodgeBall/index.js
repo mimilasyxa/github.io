@@ -14,8 +14,8 @@ class Circle {
         this.yCoord = y;
         this.radius = radius;
         this.velocity = {
-            x: (Math.random() - 0.5) * 10,
-            y: (Math.random() - 0.5) * 10,
+            x: (Math.random() - 0.5) * 7,
+            y: (Math.random() - 0.5) * 7,
         };
         this.style = getRGB();
         this.mass = this.radius/10 + Math.floor(Math.random()+ (9 - 3) + 3);
@@ -23,11 +23,11 @@ class Circle {
     collisionD(){
         if (this.xCoord - this.radius < 0 || this.xCoord + this.radius > canvas.width){
         this.velocity.x = -this.velocity.x; 
-        this.style = getRGB();
+       // this.style = getRGB();
         }
         if (this.yCoord - this.radius < 0 || this.yCoord + this.radius > canvas.height){
         this.velocity.y = -this.velocity.y;
-        this.style = getRGB();
+       // this.style = getRGB();
         }
     }
     draw(){
@@ -49,7 +49,7 @@ class Circle {
         for (let c = 0; c<circles.length; c++){
             if (this == circles[c]) continue;
             if (distance(this.xCoord ,this.yCoord , circles[c].xCoord, circles[c].yCoord) - (this.radius + circles[c].radius)< 0){
-                if (this.style != circles[c].style){
+                if (!(this.style == circles[c].style || this.radius == circles[c].radius)){  
                 resolveCollision(this,circles[c]);
                 switch (true){
                     case (this.radius > circles[c].radius):
@@ -71,7 +71,7 @@ class Circle {
 
 }
 
-for (let i=0;i<35;i++){
+for (let i=0;i<40;i++){
     let x = giveW();
     let y = giveH();
     let radius  = Math.floor(Math.random() * (30 - 20)) + 20;
