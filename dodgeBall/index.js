@@ -32,8 +32,8 @@ class Circle {
     }
     draw(){
         ctx.fillStyle = this.style;
-        ctx.lineTo(this.xCoord,this.yCoord);
-        ctx.lineTo(this.xCoord - this.radius/1.5, this.yCoord - this.radius/1.5);
+        ctx.lineTo(this.xCoord,this.yCoord - this.radius/1.5);
+        ctx.lineTo(this.xCoord - this.radius/1.5, this.yCoord);
         ctx.lineTo(this.xCoord , this.yCoord + this.radius/1.5);
         ctx.arc(this.xCoord,this.yCoord,this.radius,0,Math.PI*2);
     }
@@ -49,15 +49,21 @@ class Circle {
         for (let c = 0; c<circles.length; c++){
             if (this == circles[c]) continue;
             if (distance(this.xCoord ,this.yCoord , circles[c].xCoord, circles[c].yCoord) - (this.radius + circles[c].radius)< 0){
+                if (this.style != circles[c].style){
                 resolveCollision(this,circles[c]);
                 switch (true){
                     case (this.radius > circles[c].radius):
                         circles[c].style = this.style;
+                        circles[c].radius+=4;
+                        this.radius-=4;
                         break;
                     case (circles[c].radius > this.radius):
                         this.style = circles[c].style;
+                        circles[c].radius-=4;
+                        this.radius+=4;
                         break;
                 }
+            }
         }
                 
     }
@@ -65,7 +71,7 @@ class Circle {
 
 }
 
-for (let i=0;i<50;i++){
+for (let i=0;i<35;i++){
     let x = giveW();
     let y = giveH();
     let radius  = Math.floor(Math.random() * (30 - 20)) + 20;
@@ -80,6 +86,7 @@ for (let i=0;i<50;i++){
     }
     circles.push(new Circle(x ,y ,radius));
 }
+//////////////////////
 window.requestAnimationFrame(drawing)
 function drawing(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -88,7 +95,7 @@ function drawing(){
     })
     window.requestAnimationFrame(drawing)
     }
-
+//////////////////////
 function giveW(){
     do {
         var W = (Math.random() * 1000 * 1.6);
