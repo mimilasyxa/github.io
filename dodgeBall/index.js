@@ -50,7 +50,8 @@ class Circle {
             if (this == circles[c]) continue;
             if (distance(this.xCoord ,this.yCoord , circles[c].xCoord, circles[c].yCoord) - (this.radius + circles[c].radius)< 0){
                 resolveCollision(this,circles[c]);
-                if (this.radius > circles[c].radius) circles[c].style = this.style;
+                if (this.radius > circles[c].radius) 
+                    circles[c].style = this.style;
                 else this.style = circles[c].style;
         }
                 
