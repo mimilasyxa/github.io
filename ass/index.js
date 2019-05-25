@@ -18,7 +18,7 @@ class Circle {
             y: (Math.random() - 0.5) * 10,
         };
         this.style = getRGB();
-        this.mass = 1 + this.radius/100;
+        this.mass = 1 + this.radius/50;
     }
     collisionD(){
         if (this.xCoord - this.radius < 0 || this.xCoord + this.radius > canvas.width){
@@ -50,6 +50,8 @@ class Circle {
             if (this == circles[c]) continue;
             if (distance(this.xCoord ,this.yCoord , circles[c].xCoord, circles[c].yCoord) - (this.radius + circles[c].radius)< 0){
                 resolveCollision(this,circles[c]);
+                if (this.radius > circles[c].radius) circles[c].style = this.style;
+                else this.style = circles[c].style;
         }
                 
     }
@@ -60,7 +62,7 @@ class Circle {
 for (let i=0;i<50;i++){
     let x = giveW();
     let y = giveH();
-    let radius  = Math.floor(Math.random() * (30 - 10)) + 10;
+    let radius  = Math.floor(Math.random() * (30 - 20)) + 20;
     if (i > 0){
         for (let j = 0 ; j<circles.length;j++){
             if (distance(x ,y , circles[j].xCoord, circles[j].yCoord) - (radius + circles[j].radius)< 0){
