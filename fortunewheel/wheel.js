@@ -65,12 +65,12 @@ function startBTN(){
 function ownChallenges(){
     ctx.beginPath();
     ctx.strokeStyle = "RGB(255,155,0)";
-    ctx.moveTo(canvW/2 - 730, canvH/2 - 20);
+    ctx.moveTo(canvW/2 - 710, canvH/2 - 20);
     ctx.lineTo(canvW/2 - 435, canvH/2 - 20);
     ctx.lineTo(canvW/2 - 435, canvH/2 + 20);
-    ctx.lineTo(canvW/2 - 730, canvH/2 + 20);
+    ctx.lineTo(canvW/2 - 710, canvH/2 + 20);
     ctx.font = "30px Arial";
-    ctx.fillText("OWN CHALLENGES",canvW/2 - 725,canvH/2 + 10); 
+    ctx.fillText("OWN OUTCOMES",canvW/2 - 700,canvH/2 + 10); 
     ctx.closePath();
     ctx.stroke();
 }
