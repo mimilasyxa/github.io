@@ -66,15 +66,14 @@ function startBTN(){
 function ownChallenges(){
     ctx.beginPath();
     ctx.strokeStyle = "RGB(255,155,0)";
-    ctx.moveTo(canvW/2 - 800, canvH/2 - 20);
-    ctx.lineTo(canvW/2 - 505, canvH/2 - 20);
-    ctx.lineTo(canvW/2 - 505, canvH/2 + 20);
-    ctx.lineTo(canvW/2 - 800, canvH/2 + 20);
+    ctx.moveTo(canvW/2 - 730, canvH/2 - 20);
+    ctx.lineTo(canvW/2 - 440, canvH/2 - 20);
+    ctx.lineTo(canvW/2 - 440, canvH/2 + 20);
+    ctx.lineTo(canvW/2 - 730, canvH/2 + 20);
     ctx.font = "30px Arial";
-    ctx.fillText("OWN CHALLENGES",canvW/2 - 795,canvH/2 + 10); 
+    ctx.fillText("OWN CHALLENGES",canvW/2 - 725,canvH/2 + 10); 
     ctx.closePath();
     ctx.stroke();
-    //prompt("Divide by comma what challenges you want (12 only for now)");
 }
 
 ownChallenges();
@@ -91,7 +90,7 @@ canvas.addEventListener("click", function(event){
         //mainDraw();
     }
     if ((x > canvW/2 - 800 && x < canvW/2 - 505)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change");
+       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change//Для создания собственного колеса вам необходимо вписать 12 испытаний разделённых запятой.Затем нажать START и колесо изменится");
        challenge =  userInput.split(",");
     }
 })
