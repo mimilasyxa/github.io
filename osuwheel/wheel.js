@@ -1,6 +1,7 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 var challenge=["succ","succ 2","succ 3","succ 4","succ 5","succ 6","succ 7","succ 8","succ 9","succ 10","succ 11","succ 12"];
+var timeR = Math.random() * 512;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -70,8 +71,8 @@ canvas.addEventListener("click", function(event){
     x = event.clientX;
     y = event.clientY;
     if ((x > canvW/2 + 490 && x < canvW/2 + 590)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-
         mainDraw();
+        //mainDraw();
     }
 })
 // дальше будет сама анимация
@@ -79,16 +80,24 @@ let a = 0;
 
 function mainDraw(){
     ctx.clearRect(0 ,0 ,canvW ,canvH);
-    draw();
-    text();
     arrow();
     startBTN();
+    ctx.save();
     ctx.translate(canvW/2, canvH/2);
-    ctx.rotate(a * 1* Math.PI/180);
+    ctx.rotate(a * 1.1* Math.PI/180);
     ctx.translate(-canvW/2, -canvH/2);
-    console.log("YES?");
-    a+=0.1;
+    draw();
+    text();
+    ctx.restore();
+    a+=5;
+    if (a < timeR){
     window.requestAnimationFrame(mainDraw);
+    }
+    else {
+        stop;
+        a = 0;
+        timeR = Math.random() * 952;
+    }
 }
 
 
