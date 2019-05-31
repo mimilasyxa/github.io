@@ -2,7 +2,7 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 var challenge=["#1","#2","#3","#4","#5","#6","#7","#8","#9","#10","#11","#12"];
 var timeR = Math.random() *(400 - 150) + 150;
-var userInput;
+var userInput;a = 0; 
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -88,14 +88,12 @@ canvas.addEventListener("click", function(event){
         mainDraw();
         //mainDraw();
     }
-    if ((x > canvW/2 - 800 && x < canvW/2 - 505)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
+    if ((x > canvW/2 - 730 && x < canvW/2 - 435)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
        userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change \nДля создания собственного колеса вам необходимо вписать 12 испытаний разделённых запятой.Затем нажать START и колесо изменится");
        challenge =  userInput.split(",");
     }
 })
 // дальше будет сама анимация
-let a = 0; 
-
 function mainDraw(){
     ctx.clearRect(0 ,0 ,canvW ,canvH);
     ownChallenges();
