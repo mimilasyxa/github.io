@@ -49,6 +49,13 @@ class Circle {
         for (let c = 0; c<circles.length; c++){
             if (this == circles[c]) continue;
             if (distance(this.xCoord ,this.yCoord , circles[c].xCoord, circles[c].yCoord) - (this.radius + circles[c].radius)< 0){
+                if (this.style == circles[c].style && this.radius == circles[c].radius){
+                resolveCollision(this,circles[c]);
+                this.style = getRGB();
+                this.radius+=0.5;
+                circles[c].style = getRGB();  
+                circles[c].radius+=0.5;
+                }
                 if (!(this.style == circles[c].style || this.radius == circles[c].radius)){  
                 resolveCollision(this,circles[c]);
                 switch (true){
