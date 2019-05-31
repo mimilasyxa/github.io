@@ -89,7 +89,7 @@ canvas.addEventListener("click", function(event){
         //mainDraw();
     }
     if ((x > canvW/2 - 800 && x < canvW/2 - 505)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change//Для создания собственного колеса вам необходимо вписать 12 испытаний разделённых запятой.Затем нажать START и колесо изменится");
+       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change \nДля создания собственного колеса вам необходимо вписать 12 испытаний разделённых запятой.Затем нажать START и колесо изменится");
        challenge =  userInput.split(",");
     }
 })
