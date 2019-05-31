@@ -1,5 +1,6 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
+var challenge=["succ","succ 2","succ 3","succ 4","succ 5","succ 6","succ 7","succ 8","succ 9","succ 10","succ 11","succ 12"];
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -13,11 +14,11 @@ function text(){
     ctx.translate(canvW/2, canvH/2);
     ctx.rotate(15 * Math.PI/180);
     ctx.font = "30px Arial";
-    ctx.fillText("Hello World", 150,11); 
-    for (var i = 1; i<=12 ;i++){
+    ctx.fillText("succ",150,11); 
+    for (var i = 1; i<12 ;i++){
     ctx.rotate(15*2 * Math.PI/180);
     ctx.font = "30px Arial";
-    ctx.fillText("Hello World", 150,11); 
+    ctx.fillText(challenge[i], 150,11); 
     }
     ctx.restore();
 }
