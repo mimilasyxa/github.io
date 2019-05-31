@@ -88,7 +88,7 @@ canvas.addEventListener("click", function(event){
         mainDraw();
         //mainDraw();
     }
-    if ((x > canvW/2 - 730 && x < canvW/2 - 435)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
+    if ((x > canvW/2 - 710 && x < canvW/2 - 435)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
        userInput = prompt("To make your own wheel you need to write down 12 outcomes divided by comma.Then press START and wheel will change \nДля создания собственного колеса фортуны вам необходимо вписать 12 исходов разделённых запятой.Затем нажать START и колесо фортуны изменится");
        challenge =  userInput.split(",");
     }
