@@ -91,7 +91,7 @@ canvas.addEventListener("click", function(event){
         //mainDraw();
     }
     if ((x > canvW/2 - 800 && x < canvW/2 - 505)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel whill change");
+       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel will change");
        challenge =  userInput.split(",");
     }
 })
