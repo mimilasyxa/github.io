@@ -1,7 +1,7 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 var challenge=["succ","succ 2","succ 3","succ 4","succ 5","succ 6","succ 7","succ 8","succ 9","succ 10","succ 11","succ 12"];
-var timeR = Math.random() * 512;
+var timeR = Math.random() *(400 - 150) + 150;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -96,7 +96,7 @@ function mainDraw(){
     else {
         stop;
         a = 0;
-        timeR = Math.random() * 952;
+        timeR = Math.random() *(400 - 150) + 150;
     }
 }
 
