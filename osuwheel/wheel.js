@@ -2,6 +2,7 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 var challenge=["succ","succ 2","succ 3","succ 4","succ 5","succ 6","succ 7","succ 8","succ 9","succ 10","succ 11","succ 12"];
 var timeR = Math.random() *(400 - 150) + 150;
+var userInput;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -16,7 +17,7 @@ function text(){
     ctx.translate(canvW/2, canvH/2);
     ctx.rotate(15 * Math.PI/180);
     ctx.font = "30px Arial";
-    ctx.fillText("succ",150,11); 
+    ctx.fillText(challenge[0],150,11); 
     for (var i = 1; i<12 ;i++){
     ctx.rotate(15*2 * Math.PI/180);
     ctx.font = "30px Arial";
@@ -62,6 +63,21 @@ function startBTN(){
     ctx.stroke();
 }
 
+function ownChallenges(){
+    ctx.beginPath();
+    ctx.strokeStyle = "RGB(255,155,0)";
+    ctx.moveTo(canvW/2 - 800, canvH/2 - 20);
+    ctx.lineTo(canvW/2 - 505, canvH/2 - 20);
+    ctx.lineTo(canvW/2 - 505, canvH/2 + 20);
+    ctx.lineTo(canvW/2 - 800, canvH/2 + 20);
+    ctx.font = "30px Arial";
+    ctx.fillText("OWN CHALLENGES",canvW/2 - 795,canvH/2 + 10); 
+    ctx.closePath();
+    ctx.stroke();
+    //prompt("Divide by comma what challenges you want (12 only for now)");
+}
+
+ownChallenges();
 draw();
 text();
 arrow();
@@ -74,12 +90,17 @@ canvas.addEventListener("click", function(event){
         mainDraw();
         //mainDraw();
     }
+    if ((x > canvW/2 - 800 && x < canvW/2 - 505)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
+       userInput = prompt("To make your own wheel you need to write down 12 challenges divided by comma.Then press START and wheel whill change");
+       challenge =  userInput.split(",");
+    }
 })
 // дальше будет сама анимация
 let a = 0; 
 
 function mainDraw(){
     ctx.clearRect(0 ,0 ,canvW ,canvH);
+    ownChallenges();
     arrow();
     startBTN();
     ctx.save();
