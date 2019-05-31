@@ -1,6 +1,6 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
-var challenge=["succ","succ 2","succ 3","succ 4","succ 5","succ 6","succ 7","succ 8","succ 9","succ 10","succ 11","succ 12"];
+var challenge=["#1","#2","#3","#4","#5","#6","#7","#8","#9","#10","#11","#12"];
 var timeR = Math.random() *(400 - 150) + 150;
 var userInput;
 
