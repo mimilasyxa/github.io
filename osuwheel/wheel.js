@@ -20,7 +20,6 @@ function text(){
     ctx.fillText(challenge[0],150,11); 
     for (var i = 1; i<12 ;i++){
     ctx.rotate(15*2 * Math.PI/180);
-    ctx.font = "30px Arial";
     ctx.fillText(challenge[i], 150,11); 
     }
     ctx.restore();
@@ -67,8 +66,8 @@ function ownChallenges(){
     ctx.beginPath();
     ctx.strokeStyle = "RGB(255,155,0)";
     ctx.moveTo(canvW/2 - 730, canvH/2 - 20);
-    ctx.lineTo(canvW/2 - 440, canvH/2 - 20);
-    ctx.lineTo(canvW/2 - 440, canvH/2 + 20);
+    ctx.lineTo(canvW/2 - 435, canvH/2 - 20);
+    ctx.lineTo(canvW/2 - 435, canvH/2 + 20);
     ctx.lineTo(canvW/2 - 730, canvH/2 + 20);
     ctx.font = "30px Arial";
     ctx.fillText("OWN CHALLENGES",canvW/2 - 725,canvH/2 + 10); 
