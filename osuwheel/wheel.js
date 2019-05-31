@@ -10,6 +10,7 @@ canvW = canvas.width;
 
 // подготовка, создание секторов / текста
 function text(){
+    ctx.beginPath();
     ctx.save()
     ctx.translate(canvW/2, canvH/2);
     ctx.rotate(15 * Math.PI/180);
@@ -21,6 +22,7 @@ function text(){
     ctx.fillText(challenge[i], 150,11); 
     }
     ctx.restore();
+    ctx.closePath();
 }
 
 function draw() {
@@ -44,11 +46,49 @@ function arrow(){
     ctx.lineTo(canvW/2 + 450 + 30, canvH/2 - 10);
     ctx.lineTo(canvW/2 + 450 + 30, canvH/2 + 10);
     ctx.closePath();
+    ctx.stroke();
+}
+
+function startBTN(){
+    ctx.beginPath();
+    ctx.moveTo(canvW/2 + 490, canvH/2 - 20);
+    ctx.lineTo(canvW/2 + 490 + 100, canvH/2 - 20);
+    ctx.lineTo(canvW/2 + 490 + 100, canvH/2 + 20);
+    ctx.lineTo(canvW/2 + 490, canvH/2 + 20);
+    ctx.font = "30px Arial";
+    ctx.fillText("START",canvW/2 + 492,canvH/2 + 10); 
+    ctx.closePath();
+    ctx.stroke();
 }
 
 draw();
 text();
 arrow();
-ctx.fill();
+startBTN();
+
+canvas.addEventListener("click", function(event){
+    x = event.clientX;
+    y = event.clientY;
+    if ((x > canvW/2 + 490 && x < canvW/2 + 590)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
+
+        mainDraw();
+    }
+})
 // дальше будет сама анимация
+let a = 0; 
+
+function mainDraw(){
+    ctx.clearRect(0 ,0 ,canvW ,canvH);
+    draw();
+    text();
+    arrow();
+    startBTN();
+    ctx.translate(canvW/2, canvH/2);
+    ctx.rotate(a * 1* Math.PI/180);
+    ctx.translate(-canvW/2, -canvH/2);
+    console.log("YES?");
+    a+=0.1;
+    window.requestAnimationFrame(mainDraw);
+}
+
 
