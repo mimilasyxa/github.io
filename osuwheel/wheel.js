@@ -37,7 +37,18 @@ function draw() {
     ctx.closePath();
 }
 
+function arrow(){
+    ctx.fillStyle = "RGB(255,155,0)";
+    ctx.beginPath();
+    ctx.moveTo(canvW/2 + 450, canvH/2);
+    ctx.lineTo(canvW/2 + 450 + 30, canvH/2 - 10);
+    ctx.lineTo(canvW/2 + 450 + 30, canvH/2 + 10);
+    ctx.closePath();
+}
+
 draw();
 text();
+arrow();
+ctx.fill();
 // дальше будет сама анимация
 
