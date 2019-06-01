@@ -15,11 +15,11 @@ function text(){
     ctx.beginPath();
     ctx.save()
     ctx.translate(canvW/2, canvH/2);
-    ctx.rotate(15 * Math.PI/180);
+    ctx.rotate(180/challenge.length * Math.PI/180);
     ctx.font = "30px Arial";
     ctx.fillText(challenge[0],150,11); 
-    for (var i = 1; i<12 ;i++){
-    ctx.rotate(15*2 * Math.PI/180);
+    for (var i = 1; i<challenge.length ;i++){
+    ctx.rotate(180/challenge.length*2 * Math.PI/180);
     ctx.fillText(challenge[i], 150,11); 
     }
     ctx.restore();
@@ -30,10 +30,10 @@ function draw() {
     ctx.beginPath()
     ctx.strokeStyle = "RGB(255,155,0)"
     ctx.lineTo(canvW/2, canvH/2);
-    ctx.arc(canvW/2 ,canvH/2 ,400 ,0 , 30 * Math.PI/180);
+    ctx.arc(canvW/2 ,canvH/2 ,400 ,0 , (180/challenge.length * 2) * Math.PI/180);
     ctx.lineTo(canvW/2, canvH/2);
-    for (var i = 1 ; i<=11 ; i++){
-    ctx.arc(canvW/2 ,canvH/2 ,400 ,i * 30 * Math.PI/180 ,(i + 1) * 30 * Math.PI/180);
+    for (var i = 1 ; i<challenge.length ; i++){
+    ctx.arc(canvW/2 ,canvH/2 ,400 ,i * (180/challenge.length*2) * Math.PI/180 ,(i + 1) * (180/challenge.length*2) * Math.PI/180);
     ctx.lineTo(canvW/2, canvH/2);
     }
     ctx.stroke();
@@ -86,10 +86,9 @@ canvas.addEventListener("click", function(event){
     y = event.clientY;
     if ((x > canvW/2 + 490 && x < canvW/2 + 590)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
         mainDraw();
-        //mainDraw();
     }
     if ((x > canvW/2 - 710 && x < canvW/2 - 435)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-       userInput = prompt("To make your own wheel you need to write down 12 outcomes divided by comma.Then press START and wheel will change \nДля создания собственного колеса фортуны вам необходимо вписать 12 исходов разделённых запятой.Затем нажать START и колесо фортуны изменится");
+       userInput = prompt("To make your own wheel you need to write down outcomes divided by comma.Then press START and wheel will change \nДля создания собственного колеса фортуны вам необходимо вписать исходы разделённые запятой.Затем нажать START и колесо фортуны изменится");
        challenge =  userInput.split(",");
     }
 })
