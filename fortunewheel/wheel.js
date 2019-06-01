@@ -76,17 +76,17 @@ function ownChallenges(){
 }
 
 
-function updateCanv(){
+function updateCanv(){ //Очистка всего канваса для новых данных от ввода пользователя
     ctx.clearRect(0,0,canvW,canvH);
-ownChallenges();
-draw();
-text();
-arrow();
-startBTN();
+    ownChallenges();
+    draw();
+    text();
+    arrow();
+    startBTN();
 }
 updateCanv();
 
-canvas.addEventListener("click", function(event){
+canvas.addEventListener("click", function(event){ // проверка находится ли курсор внутри кнопки START / OWN OUTCOMES
     x = event.clientX;
     y = event.clientY;
     if ((x > canvW/2 + 490 && x < canvW/2 + 590)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
