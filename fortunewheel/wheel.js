@@ -75,11 +75,16 @@ function ownChallenges(){
     ctx.stroke();
 }
 
+
+function updateCanv(){
+    ctx.clearRect(0,0,canvW,canvH);
 ownChallenges();
 draw();
 text();
 arrow();
 startBTN();
+}
+updateCanv();
 
 canvas.addEventListener("click", function(event){
     x = event.clientX;
@@ -88,8 +93,9 @@ canvas.addEventListener("click", function(event){
         mainDraw();
     }
     if ((x > canvW/2 - 710 && x < canvW/2 - 435)&(y > canvH/2 - 20 && y < canvH/2 + 20)){
-       userInput = prompt("To make your own wheel you need to write down outcomes divided by comma.Then press START and wheel will change \nДля создания собственного колеса фортуны вам необходимо вписать исходы разделённые запятой.Затем нажать START и колесо фортуны изменится");
+       userInput = prompt("To make your own wheel you need to write down outcomes divided by comma.Then press OK.\nДля создания собственного колеса фортуны вам необходимо вписать исходы разделённые запятой.Затем нажать OK");
        challenge =  userInput.split(",");
+       updateCanv();
     }
 })
 // дальше будет сама анимация
