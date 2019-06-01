@@ -15,8 +15,8 @@ function text(){
     ctx.beginPath();
     ctx.save()
     ctx.translate(canvW/2, canvH/2);
-    ctx.rotate(180/challenge.length * Math.PI/180);
-    ctx.font = "30px Arial";
+    ctx.rotate(((180/challenge.length) - 2)* Math.PI/180);
+    ctx.font = "20px Arial";
     ctx.fillText(challenge[0],75,11); 
     for (var i = 1; i<challenge.length ;i++){
     ctx.rotate(180/challenge.length*2 * Math.PI/180);
