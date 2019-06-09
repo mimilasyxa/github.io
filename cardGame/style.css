@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 80%;
+}
+
+.container {
+    flex-wrap: wrap;
+    display: flex;
+    margin: 5% 10% 5% 10%;
+    position: relative;
+    height: 100%;
+    width: 80%;
+    border:1px solid black;
+}
+
+.item {
+    height: 25%;
+    width: 15%;
+    background: black;
+    margin: auto;
+}

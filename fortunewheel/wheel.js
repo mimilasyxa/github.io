@@ -75,7 +75,6 @@ function ownChallenges(){
     ctx.stroke();
 }
 
-
 function updateCanv(){ //Очистка всего канваса для новых данных от ввода пользователя
     ctx.clearRect(0,0,canvW,canvH);
     ownChallenges();
