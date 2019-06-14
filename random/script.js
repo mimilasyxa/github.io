@@ -3,11 +3,35 @@ let age = document.querySelector(".age"),
     input = document.querySelector("input");
 
 function currentAge(birthAge){
-    return [new Date().getFullYear()-birthAge];
+    let currentYear = new Date().getFullYear(),
+        result;
+    switch (true){
+        case (isNaN(birthAge)):{
+            result = "Введите число"
+            break;
+        }
+        case (birthAge>currentYear):{
+            result = "Вы не могли родиться после " + currentYear;
+            break;
+        }
+        case (birthAge<0):{
+            result = "Отрицательный год невозможен";
+            break;
+        }
+        case (birthAge<currentAge):{
+            result =  "Ваш возраст: " + (currentYear - birthAge);
+            break;
+        }
+        default:{
+            result = "Введите корректную дату";
+            break;
+        }
+    }
+    return result;
 }
 
 btn.addEventListener("click", ()=> {
-    age.innerHTML = "Ваш возраст: "+ currentAge(input.value);
+    age.innerHTML = currentAge(input.value);
 })
 /////////////////////////////////////////////////////////////////////////////
 let firstArr = document.querySelector(".firstshow"),
