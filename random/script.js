@@ -42,14 +42,15 @@ let firstArr = document.querySelector(".firstshow"),
 
 firstArr.innerHTML = "До сортировки: " + groups;
 
-for (let i = 0 ; i<groups.length - 1 ; i++){
-    if (groups[i] < groups[i+1]){
-        temp = groups[i];
-        groups[i] = groups[i+1];
-        groups[i+1] = temp;
+for (let j = 0 ; j<groups.length ; j++){
+    for (let i = 0 ; i<groups.length - 1 ; i++){
+     if (groups[i] < groups[i+1]){
+            temp = groups[i];
+            groups[i] = groups[i+1];
+            groups[i+1] = temp;
+    }
     }
 }
-
 secondArr.innerHTML = "После сортировки: " + groups;
 
 groups.push(397);
