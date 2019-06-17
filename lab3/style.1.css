@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 4vmin;
+    text-decoration: none;
+    color:black;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    position: relative;
+    height: 90%;
+    margin:auto;
+    min-height: 40%;
+    width: 70%;
+    border:1px solid black;
+}
+
+.head-container {
+    width: 100%;
+    height: 10%;
+    border:1px solid black;
+    background: linear-gradient(45deg,blue,green);
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    border:1px solid black;
+}
+
+.menuLink {
+    text-align: center;
+    position: fixed;
+    top:25%;
+    left:0;
+    width: 20%;
+    height: 10%;
+    border: 1px solid black;
+}
+
+.article {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    height: 84%;
+    width: 20%;
+    right: 10%;
+}
+
+.article a{
+    padding-top: 5%;
+    margin-top: 5%;
+    text-align: center;
+    height: 10%;
+    width: 100%;
+}
+
+.lection {
+    width: 100%;
+    height: 100%;
+    background: green;
+
+}
+
+
+footer {
+    height: 10%;
+    width: 70%;
+    background: green;
+    margin: auto;
+}

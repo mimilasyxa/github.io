@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 4vmin;
+    text-decoration: none;
+    color:black;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    position: relative;
+    height: auto;
+    min-height: 81%;
+    margin:auto;
+    min-height: 40%;
+    width: 70%;
+    border:1px solid black;
+}
+
+.head-container {
+    margin: auto;
+    width: 70%;
+    height: 9%;
+    border:1px solid black;
+    background: linear-gradient(45deg,blue,green);
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    border:1px solid black;
+}
+
+.menuLink {
+    text-align: center;
+    position: fixed;
+    top:25%;
+    left:2%;
+    width: 10%;
+    height: 10%;
+    border: 1px solid black;
+}
+
+.article {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    height: 84%;
+    width: 20%;
+    right: 10%;
+}
+
+.article a{
+    padding-top: 5%;
+    margin-top: 5%;
+    text-align: center;
+    height: 10%;
+    width: 100%;
+}
+
+.lection {
+    width: 100%;
+    height: 100%;
+    background: green;
+
+}
+
+
+.text {
+    font-size: 80%;
+    width: 100%;
+    height: auto;
+    min-height: 81%;
+    padding: 10%;
+}
+
+
+.buttons-case {
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 100%;
+}
+
+.buttons-case a{
+    text-align: center;
+    margin:auto;
+    height: auto;
+    width: auto;
+    border:1px solid black;
+}
+
+footer {
+    height: 10%;
+    width: 70%;
+    background: green;
+    margin: auto;
+}
