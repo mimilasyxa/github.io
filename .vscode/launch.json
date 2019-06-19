@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Simple",
+            "request": "launch",
+            "mainClass": "Simple",
+            "projectName": "mimilasyxa.github.io_4cb52da"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "mimilasyxa.github.io_4cb52da"
+        }
+    ]
+}

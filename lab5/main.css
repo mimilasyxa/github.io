@@ -1,0 +1,197 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: auto;
+    height: 100%;
+    width: 70%;
+    display: grid;
+
+
+    grid-template-columns: auto;
+    grid-template-rows: 15% 5% 73% 7%;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "container"
+    "footer";
+}
+
+header {
+    background-size: cover;
+    grid-area: header;
+}
+
+header img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: 0;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    margin-top: 5%;
+    left: 50%;
+    font-size: 50px;
+    color:rgb(255,155,0);
+    height: 5%;
+    width: 20%;
+    background: white;
+}
+
+.text p {
+    vertical-align: 10px;
+}
+
+nav {
+    grid-area: nav;
+}
+
+nav ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+li {
+    font-size: 20px;
+    text-align: center;
+    width: 16%;
+}
+
+li a{
+    padding-top: 5%;
+    display: block;
+    color:white;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+li a:hover{
+    position:relative;
+    bottom: 1px;
+    background: rgb(255,155,0);
+}
+
+input {
+    font-size: 20px;
+    height: 100%;
+    width: 20%;
+}
+
+.container {
+    grid-area: container;
+    display: flex;
+}
+
+.left {
+    width: 40%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+    "h1 h1"
+    "p img";
+
+}
+
+.left h1{
+    text-align: center;
+    grid-area: h1;
+}
+
+.left p{
+    text-align: justify;
+    padding: 15% 10% 20% 10%;
+    grid-area: p;
+}
+
+.left img{
+    margin: 20% 25% 35% 25%;
+    width: 50%;
+    height: 30%;
+    grid-area: img;
+}
+
+.right {
+    width: 60%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 7% 7% 20% 66%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+    "h2 h2"
+    "hTT hT"
+}
+
+.right h2 {
+    text-align: center;
+    grid-area: h2;
+}
+
+.hT {
+    text-align:center;
+    grid-area: hT;
+}
+
+.hTT {
+    text-align:center;
+    grid-area: hTT;
+}
+
+.rImg1 {
+    padding: 1% 40% 0 40%;
+    width: 100%;
+    height: 90%;
+}
+
+.rImg2 {
+    padding: 1% 40% 0 40%;
+    width: 100%;
+    height: 90%;
+}
+
+.rP1 {
+    padding: 0 20% 0 20%;
+    text-align: justify;
+}
+
+.rP2 {
+    padding: 0 20% 0 20%;
+    text-align: justify;
+}
+
+
+footer {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    grid-area: footer;
+    border:1px solid black;
+}
+
+footer img {
+    margin: 1% 20% 0 20%;
+    height: 50%;
+    width: 5%;
+}
+
+footer li {
+    list-style-type: circle;
+}
+
