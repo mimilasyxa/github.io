@@ -9,6 +9,7 @@ html, body{
 }
 
 div {
+    position: relative;
     text-align: center;
 }
 
@@ -43,7 +44,11 @@ div {
     "footer footer footer" ;
 }
 
-
+p {
+    position: absolute;
+    left:calc(50% - 23px);
+    top:calc(50% - 9px);
+}
 
 @media screen and (max-width:768px) {
     .grid {
