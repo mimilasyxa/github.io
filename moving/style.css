@@ -8,17 +8,48 @@ html, body{
     height: 100%;
 }
 
-.block {
-    color:red;
-    position: absolute;
-    width: 60%;
-    height: 10%;
-    background: black;
+div {
+    text-align: center;
 }
 
-@media screen and (min-width:1000px) {
+.header {
+    grid-area: header;
+    width: 100%;
+    height: 100%;
+    background: red;
+}
 
-    .block {
-        background: red;
+.content {
+    grid-area: conten;
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+
+.footer {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+    background: lightgrey;
+}
+
+.grid {
+    width: 100%;
+    height: 100%;
+    display:grid;
+    grid-template: 
+    "header  header header" 
+    "conten  conten conten" 
+    "footer footer footer" ;
+}
+
+
+
+@media screen and (max-width:768px) {
+    .grid {
+        grid-template: 
+        "header  conten footer" 
+        "header  conten footer" 
+        "header  conten footer" ;
     }
 }
