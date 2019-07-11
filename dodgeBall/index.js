@@ -23,11 +23,9 @@ class Circle {
     collisionD(){
         if (this.xCoord - this.radius < 0 || this.xCoord + this.radius > canvas.width){
         this.velocity.x = -this.velocity.x; 
-       // this.style = getRGB();
         }
         if (this.yCoord - this.radius < 0 || this.yCoord + this.radius > canvas.height){
         this.velocity.y = -this.velocity.y;
-       // this.style = getRGB();
         }
     }
     draw(){

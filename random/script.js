@@ -4,12 +4,11 @@ let age = document.querySelector(".age"),
 
 function currentAge(birthAge){
     let currentYear = new Date().getFullYear(),
+        currentMonth = new Date().getMonth() + 1,
+        currentDate = new Date().getDate(),
+        strInput = input.value.split("-",3),
         result;
     switch (true){
-        case (isNaN(birthAge)):{
-            result = "Введите число"
-            break;
-        }
         case (birthAge>currentYear):{
             result = "Вы не могли родиться после " + currentYear;
             break;
@@ -19,7 +18,10 @@ function currentAge(birthAge){
             break;
         }
         case (birthAge<currentAge):{
-            result =  "Ваш возраст: " + (currentYear - birthAge);
+            if (strInput[1]>currentMonth){
+                currentYear--;
+            }
+            result =  "Ваш возраст: " + (currentYear - strInput[0]) + " лет " + Math.abs(currentMonth - strInput[1]) + " месяцев " + Math.abs(currentDate - strInput[2]) + " дней";
             break;
         }
         default:{
