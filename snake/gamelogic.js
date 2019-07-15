@@ -94,16 +94,19 @@ document.addEventListener( "keydown" , (e)=> {
     switch (e.keyCode) {
         case 87:
         case 38:
-            snake_moving = "up";
+            if (!(snake_moving == "down" && length > 1)) snake_moving = "up";
             break;
+        case 68:
         case 39:
-            snake_moving = "right";
+            if (!(snake_moving == "left" && length > 1)) snake_moving = "right";
             break;
+        case 83:
         case 40:
-            snake_moving = "down";
+            if (!(snake_moving == "up" && length > 1)) snake_moving = "down";
             break;
+        case 65:
         case 37:
-            snake_moving = "left";
+            if (!(snake_moving == "right" && length > 1)) snake_moving = "left";
             break;
         default:
             break;
