@@ -12,6 +12,9 @@ var pixel = 25;
 var box = document.querySelector(".arrows");
 var arrows = {
     up : document.querySelector("#up"), 
+    right : document.querySelector("#right"), 
+    down : document.querySelector("#down"), 
+    left : document.querySelector("#left"), 
 };
 
 canvas.height = document.documentElement.clientHeight;
@@ -42,6 +45,10 @@ class Snake {
         ctx.stroke();
         prev_x.push(this.x);
         prev_y.push(this.y);
+        if (prev_x.length > 4){
+        prev_x.shift();
+        prev_y.shift();
+        }
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
         }
     }
@@ -100,6 +107,7 @@ function drawing(){
 }
 
 document.addEventListener( "keydown" , (e)=> {
+    console.log(e);
     switch (e.keyCode) {
         case 87:
         case 38:
