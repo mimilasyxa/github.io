@@ -15,3 +15,23 @@ canvas {
     width: 100%;
 }
 
+.arrows {
+
+    height: 30%;
+    width: 30%;
+    display: none;
+    flex-wrap: wrap;
+    top:0;
+    position: absolute;
+}
+
+#up , #down {
+    width: 100%;
+    height: 25%;
+}
+
+#left , #right {
+    width: 50%;
+    height: 25%;
+}
+

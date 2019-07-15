@@ -8,12 +8,17 @@ var prev_x = [];
 var prev_y = [];
 var snake_eat = false;
 var length = 1;
-var pixel = 10;
+var pixel = 25;
+var box = document.querySelector(".arrows");
+var arrows = {
+    up : document.querySelector("#up"), 
+};
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 
 if (canvas.width < 1000){
+    box.style.display = "flex";
     pixel = 50;
 }
 setInterval(function() {
