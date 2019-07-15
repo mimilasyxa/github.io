@@ -3,13 +3,14 @@ var ctx = canvas.getContext("2d");
 var x = 100;
 var y = 100;
 var snake_moving;
-var snake = [];
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 setInterval(function() {
     window.requestAnimationFrame(drawing())
 },1000/15);
+
+
 
 function drawing(){
     switch (snake_moving){
