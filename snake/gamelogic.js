@@ -90,7 +90,6 @@ function drawing(){
 }
 
 document.addEventListener( "keydown" , (e)=> {
-    console.log(e.keyCode);
     switch (e.keyCode) {
         case 87:
         case 38:
