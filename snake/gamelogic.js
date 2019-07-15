@@ -4,6 +4,7 @@ var x = 100;
 var y = 100;
 var snake_moving;
 var snake = [];
+var snake_eat = false;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -11,32 +12,68 @@ setInterval(function() {
     window.requestAnimationFrame(drawing())
 },1000/15);
 
+class Snake {
+    constructor(w ,h){
+        this.x = w;
+        this.y = h;
+    }
+    drawing(){
+        if (this.x == food.x && this.y == food.y){
+            food.respawn();
+        }
+        ctx.beginPath();
+        ctx.fillRect(this.x,this.y,10,10);
+        ctx.stroke();
+        if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
+            console.log("DEATH");
+        }
+    }
+}
+
+class Food {
+    constructor(w ,h){
+        this.x = w;
+        this.y = h;
+    }
+    drawing(){
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        ctx.fillRect(this.x ,this.y ,10 ,10);
+        ctx.stroke()
+    }
+    respawn(){
+        this.x = randomW();
+        this.y = randomH();
+    }
+}
+
+let head = new Snake(randomW(),randomH());
+let food = new Food(randomW(),randomH());
+
 function drawing(){
     switch (snake_moving){
         case ("up"):
-            y-=10;
+            head.y-=10;
             break;
         case ("right"):
-            x+=10;
+            head.x+=10;
             break;
         case ("down"):
-            y+=10;
+            head.y+=10;
             break;
         case ("left"):
-            x-=10;
+            head.x-=10;
             break;
     }
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = "black";
-    ctx.beginPath();
-    ctx.fillRect(x,y,10,10);
-    ctx.stroke();
+    head.drawing();
+    food.drawing();
     ctx.fill();
     ctx.closePath();
 }
 
 document.addEventListener( "keydown" , (e)=> {
-    console.log(e.keyCode);
     switch (e.keyCode) {
         case 38:
             snake_moving = "up";
@@ -54,3 +91,22 @@ document.addEventListener( "keydown" , (e)=> {
             break;
     }
 })
+
+function randomW(){
+    let w;
+    do {
+        w = Math.round(Math.random() * 1000);
+    }
+    while (w > canvas.width || w % 10);
+    return w;
+}
+
+function randomH(){
+    let h;
+    do {
+        h = Math.round(Math.random() * 1000);
+    }
+    while (h > canvas.height || h % 10);
+    return h;
+}
+

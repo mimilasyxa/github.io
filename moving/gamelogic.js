@@ -34,6 +34,7 @@ function drawing(){
     ctx.stroke();
     ctx.fill();
     ctx.closePath();
+    console.log(head.x);
 }
 
 document.addEventListener( "keydown" , (e)=> {
