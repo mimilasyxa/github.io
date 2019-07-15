@@ -8,9 +8,14 @@ var prev_x = [];
 var prev_y = [];
 var snake_eat = false;
 var length = 1;
+var pixel = 10;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
+
+if (canvas.width < 1000){
+    pixel = 50;
+}
 setInterval(function() {
     window.requestAnimationFrame(drawing())
 },1000/10);
@@ -28,7 +33,7 @@ class Snake {
             this.increase();
         }
         ctx.beginPath();
-        ctx.fillRect(this.x,this.y,10,10);
+        ctx.fillRect(this.x,this.y,pixel,pixel);
         ctx.stroke();
         prev_x.push(this.x);
         prev_y.push(this.y);
@@ -48,7 +53,7 @@ class Food {
     drawing(){
         ctx.fillStyle = "red";
         ctx.beginPath();
-        ctx.fillRect(this.x ,this.y ,10 ,10);
+        ctx.fillRect(this.x ,this.y ,pixel ,pixel);
         ctx.stroke()
         ctx.fillStyle = "black";
     }
@@ -64,16 +69,16 @@ let food = new Food(randomW(),randomH());
 function drawing(){
     switch (snake_moving){
         case ("up"):
-            snake[0].y-=10;
+            snake[0].y-=pixel;
             break;
         case ("right"):
-            snake[0].x+=10;
+            snake[0].x+=pixel;
             break;
         case ("down"):
-            snake[0].y+=10;
+            snake[0].y+=pixel;
             break;
         case ("left"):
-            snake[0].x-=10;
+            snake[0].x-=pixel;
             break;
     }
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -83,7 +88,7 @@ function drawing(){
     })
     food.drawing();
     for (var i = 0; i<length ;i++){
-    ctx.fillRect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], 10 ,10);
+    ctx.fillRect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], pixel ,pixel);
     }
     ctx.fill();
     ctx.closePath();
@@ -117,7 +122,7 @@ function randomW(){
     do {
         w = Math.round(Math.random() * 1000);
     }
-    while (w > canvas.width || w % 10);
+    while (w > canvas.width || w % pixel);
     return w;
 }
 
@@ -126,7 +131,7 @@ function randomH(){
     do {
         h = Math.round(Math.random() * 1000);
     }
-    while (h > canvas.height || h % 10);
+    while (h > canvas.height || h % pixel);
     return h;
 }
 
