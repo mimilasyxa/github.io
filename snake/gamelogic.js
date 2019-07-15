@@ -4,29 +4,39 @@ var x = 100;
 var y = 100;
 var snake_moving;
 var snake = [];
+var prev_x = [];
+var prev_y = [];
 var snake_eat = false;
+var length = 1;
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 setInterval(function() {
     window.requestAnimationFrame(drawing())
-},1000/15);
+},1000/10);
 
 class Snake {
     constructor(w ,h){
         this.x = w;
         this.y = h;
+        this.xPrev;
+        this.yPrev;
     }
     drawing(){
         if (this.x == food.x && this.y == food.y){
             food.respawn();
+            this.increase();
         }
         ctx.beginPath();
         ctx.fillRect(this.x,this.y,10,10);
         ctx.stroke();
+        prev_x.push(this.x);
+        prev_y.push(this.y);
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
-            console.log("DEATH");
         }
+    }
+    increase(){
+        length++;
     }
 }
 
@@ -40,6 +50,7 @@ class Food {
         ctx.beginPath();
         ctx.fillRect(this.x ,this.y ,10 ,10);
         ctx.stroke()
+        ctx.fillStyle = "black";
     }
     respawn(){
         this.x = randomW();
@@ -47,28 +58,33 @@ class Food {
     }
 }
 
-let head = new Snake(randomW(),randomH());
+snake.push(new Snake(randomW(),randomH()));
 let food = new Food(randomW(),randomH());
 
 function drawing(){
     switch (snake_moving){
         case ("up"):
-            head.y-=10;
+            snake[0].y-=10;
             break;
         case ("right"):
-            head.x+=10;
+            snake[0].x+=10;
             break;
         case ("down"):
-            head.y+=10;
+            snake[0].y+=10;
             break;
         case ("left"):
-            head.x-=10;
+            snake[0].x-=10;
             break;
     }
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = "black";
-    head.drawing();
+    snake.forEach((part) => {
+        part.drawing();
+    })
     food.drawing();
+    for (var i = 0; i<length ;i++){
+    ctx.fillRect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], 10 ,10);
+    }
     ctx.fill();
     ctx.closePath();
 }
