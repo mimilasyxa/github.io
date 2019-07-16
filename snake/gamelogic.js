@@ -123,7 +123,6 @@ function drawing(){
 
 setInterval(function(){
     if (points == 0){
-
     }
     else points--;
 },1000/2);
