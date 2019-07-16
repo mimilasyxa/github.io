@@ -29,6 +29,12 @@ if (canvas.width < 1000){
 }
 setInterval(function() {
     window.requestAnimationFrame(drawing);
+    for (var i = 0; i < length ; i++){
+    if (length> 3 && ( snake[0].x == prev_x[prev_x.length - (i + 2)]) && (snake[0].y == prev_y[prev_y.length - (i+2)])){
+        console.log("hit");
+        length = i;
+    }
+}
 },1000/10);
 
 class Snake {
