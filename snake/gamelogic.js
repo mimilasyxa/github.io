@@ -130,6 +130,26 @@ document.addEventListener( "keydown" , (e)=> {
     }
 })
 
+
+document.addEventListener("mouseup", (e) => {
+    console.log(e.target);
+    switch (e.target){
+        case arrows.up :
+            if (!(snake_moving == "down" && length > 1)) snake_moving = "up";
+            break;
+        case arrows.right :
+            if (!(snake_moving == "left" && length > 1)) snake_moving = "right";
+            break;
+        case arrows.down :
+            if (!(snake_moving == "up" && length > 1)) snake_moving = "down";
+            break;
+        case arrows.right :
+            if (!(snake_moving == "left" && length > 1)) snake_moving = "right";
+            break;
+        break;
+    }
+})
+
 function randomW(){
     let w;
     do {

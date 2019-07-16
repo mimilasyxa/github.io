@@ -21,7 +21,7 @@ canvas {
     width: 30%;
     display: none;
     flex-wrap: wrap;
-    top:0;
+    bottom:0;
     position: absolute;
 }
 
