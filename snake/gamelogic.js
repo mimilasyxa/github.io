@@ -45,7 +45,7 @@ class Snake {
         ctx.stroke();
         prev_x.push(this.x);
         prev_y.push(this.y);
-        if (prev_x.length > 4){
+        if (prev_x.length > length){
         prev_x.shift();
         prev_y.shift();
         }
