@@ -25,7 +25,7 @@ if (canvas.width < 1000){
     pixel = 50;
 }
 setInterval(function() {
-    window.requestAnimationFrame(drawing())
+    window.requestAnimationFrame(drawing);
 },1000/10);
 
 class Snake {
@@ -110,7 +110,6 @@ function drawing(){
 }
 
 document.addEventListener( "keydown" , (e)=> {
-    console.log(e);
     switch (e.keyCode) {
         case 87:
         case 38:
@@ -133,9 +132,7 @@ document.addEventListener( "keydown" , (e)=> {
     }
 })
 
-
 document.addEventListener("touchstart", (e) => {
-    console.log(e.target);
     switch (e.target){
         case arrows.up :
             if (!(snake_moving == "down" && length > 1)) snake_moving = "up";
