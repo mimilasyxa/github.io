@@ -143,8 +143,8 @@ document.addEventListener("touchstart", (e) => {
         case arrows.down :
             if (!(snake_moving == "up" && length > 1)) snake_moving = "down";
             break;
-        case arrows.right :
-            if (!(snake_moving == "left" && length > 1)) snake_moving = "right";
+        case arrows.left :
+            if (!(snake_moving == "right" && length > 1)) snake_moving = "left";
             break;
         break;
     }
