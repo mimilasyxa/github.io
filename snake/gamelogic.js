@@ -131,7 +131,7 @@ document.addEventListener( "keydown" , (e)=> {
 })
 
 
-document.addEventListener("mouseup", (e) => {
+document.addEventListener("touchstart", (e) => {
     console.log(e.target);
     switch (e.target){
         case arrows.up :
