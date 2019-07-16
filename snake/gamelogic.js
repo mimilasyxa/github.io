@@ -9,6 +9,7 @@ var prev_y = [];
 var snake_eat = false;
 var length = 1;
 var pixel = 25;
+var points = 0;
 var box = document.querySelector(".arrows");
 var arrows = {
     up : document.querySelector("#up"), 
@@ -39,6 +40,7 @@ class Snake {
         if (this.x == food.x && this.y == food.y){
             food.respawn();
             this.increase();
+            points+=100;
         }
         ctx.beginPath();
         ctx.fillRect(this.x,this.y,pixel,pixel);
@@ -50,6 +52,7 @@ class Snake {
         prev_y.shift();
         }
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
+            points = 0;
             length=1;
             this.x = randomW();
             this.y = randomH();
@@ -110,9 +113,17 @@ function drawing(){
     for (var i = 0; i<length ;i++){
     ctx.fillRect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], pixel ,pixel);
     }
+    score();
     ctx.fill();
     ctx.closePath();
 }
+
+setInterval(function(){
+    if (points == 0){
+
+    }
+    else points--;
+},1000/2);
 
 document.addEventListener( "keydown" , (e)=> {
     switch (e.keyCode) {
@@ -173,3 +184,9 @@ function randomH(){
     return h;
 }
 
+function score(){
+    ctx.font='15px sans-serif';
+    
+    ctx.fillText("Счёт: " + points, canvas.width/2, 30);
+    
+}
