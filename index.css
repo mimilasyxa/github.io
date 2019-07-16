@@ -33,7 +33,7 @@ a:hover {
     background: rgba(0,255,0,0.3);
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:1000px){
     .container {
         flex-wrap: wrap;
     }
