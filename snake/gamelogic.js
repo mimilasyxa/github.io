@@ -50,6 +50,9 @@ class Snake {
         prev_y.shift();
         }
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
+            length=1;
+            this.x = randomW();
+            this.y = randomH();
         }
     }
     increase(){
