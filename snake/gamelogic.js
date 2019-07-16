@@ -75,6 +75,11 @@ class Food {
     respawn(){
         this.x = randomW();
         this.y = randomH();
+        for (var i=0 ; i<length ; i++){
+            if (this.x == prev_x[i] && this.y == prev_y[i]){
+                this.respawn();
+            }
+        }
     }
 }
 
