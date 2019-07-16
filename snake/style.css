@@ -17,7 +17,7 @@ canvas {
 }
 
 .arrows {
-    height: 30%;
+    height: 25%;
     width: 40%;
     display: none;
     flex-wrap: wrap;

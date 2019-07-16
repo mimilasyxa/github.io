@@ -8,9 +8,9 @@ var prev_x = [];
 var prev_y = [];
 var snake_eat = false;
 var length = 1;
-var pixel = 100;
+var pixel = 30;
 var points = 0;
-var font = 15;
+var font = 20;
 var box = document.querySelector(".arrows");
 var arrows = {
     up : document.querySelector("#up"), 
@@ -23,7 +23,7 @@ canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 
 if (canvas.width < 1000){
-    font = 35;
+    font = 40;
     box.style.display = "flex";
     pixel = 50;
 }
@@ -79,7 +79,7 @@ class Food {
     respawn(){
         this.x = randomW();
         this.y = randomH();
-        for (var i=0 ; i<length ; i++){
+        for (var i=0 ; i<length+2 ; i++){
             if (this.x == prev_x[i] && this.y == prev_y[i]){
                 this.respawn();
             }
@@ -189,7 +189,5 @@ function randomH(){
 
 function score(){
     ctx.font= font +'px sans-serif';
-    
-    ctx.fillText("Счёт: " + points, canvas.width/2, 30);
-    
+    ctx.fillText("Счёт: " + points, canvas.width/2 - font, 30);
 }
