@@ -189,5 +189,5 @@ function randomH(){
 
 function score(){
     ctx.font= font +'px sans-serif';
-    ctx.fillText("Счёт: " + points, canvas.width/2 - font, 30);
+    ctx.fillText("Счёт: " + points, canvas.width/2 - font, font);
 }
