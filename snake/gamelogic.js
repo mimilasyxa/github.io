@@ -108,6 +108,8 @@ function drawing(){
             break;
     }
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "lightgrey";
+    ctx.fillRect(0 ,0 ,canvas.width ,canvas.height)
     ctx.fillStyle = "black";
     snake.forEach((part) => {
         part.drawing();
