@@ -8,8 +8,9 @@ var prev_x = [];
 var prev_y = [];
 var snake_eat = false;
 var length = 1;
-var pixel = 25;
+var pixel = 100;
 var points = 0;
+var font = 15;
 var box = document.querySelector(".arrows");
 var arrows = {
     up : document.querySelector("#up"), 
@@ -22,6 +23,7 @@ canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
 
 if (canvas.width < 1000){
+    font = 35;
     box.style.display = "flex";
     pixel = 50;
 }
@@ -33,8 +35,6 @@ class Snake {
     constructor(w ,h){
         this.x = w;
         this.y = h;
-        this.xPrev;
-        this.yPrev;
     }
     drawing(){
         if (this.x == food.x && this.y == food.y){
@@ -52,6 +52,7 @@ class Snake {
         prev_y.shift();
         }
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
+            snake_moving = "stop";
             points = 0;
             length=1;
             this.x = randomW();
@@ -69,7 +70,7 @@ class Food {
         this.y = h;
     }
     drawing(){
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "green";
         ctx.beginPath();
         ctx.fillRect(this.x ,this.y ,pixel ,pixel);
         ctx.stroke()
@@ -103,6 +104,8 @@ function drawing(){
         case ("left"):
             snake[0].x-=pixel;
             break;
+        default:
+            break;
     }
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = "black";
@@ -111,7 +114,7 @@ function drawing(){
     })
     food.drawing();
     for (var i = 0; i<length ;i++){
-    ctx.fillRect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], pixel ,pixel);
+    ctx.rect(prev_x[prev_x.length-(1 + i)] ,prev_y[prev_y.length-(1 + i)], pixel ,pixel);
     }
     score();
     ctx.fill();
@@ -185,7 +188,7 @@ function randomH(){
 }
 
 function score(){
-    ctx.font='15px sans-serif';
+    ctx.font= font +'px sans-serif';
     
     ctx.fillText("Счёт: " + points, canvas.width/2, 30);
     
