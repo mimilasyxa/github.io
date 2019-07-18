@@ -31,7 +31,6 @@ setInterval(function() {
     window.requestAnimationFrame(drawing);
     for (var i = 0; i < length ; i++){
     if (length> 3 && ( snake[0].x == prev_x[prev_x.length - (i + 2)]) && (snake[0].y == prev_y[prev_y.length - (i+2)])){
-        console.log("hit");
         length = i;
     }
 }
@@ -59,6 +58,10 @@ class Snake {
         }
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
             snake_moving = "stop";
+            if (window.localStorage.getItem("score")<points){
+            window.localStorage.setItem("score", points);
+            }
+            else
             points = 0;
             length=1;
             this.x = randomW();
@@ -197,4 +200,5 @@ function randomH(){
 function score(){
     ctx.font= font +'px sans-serif';
     ctx.fillText("Счёт: " + points, canvas.width/2 - font, font);
+    ctx.fillText("Лучший счёт: " + window.localStorage.getItem("score"), canvas.width/2 - font*3, font*2);
 }
