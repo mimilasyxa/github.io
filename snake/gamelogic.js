@@ -23,17 +23,17 @@ if (window.localStorage.getItem("score") == null) {
     var topscore = 0;
 }
 else var topscore = window.localStorage.getItem("score");
-window.onload = function(){
-canvas.height = 1500;
-canvas.width = 3000;
 
-if (window.innerWidth < 900){
+if (window.innerWidth < 1000){
     font = 40;
     box.style.display = "flex";
     pixel = 50;
     canvas.height = 1200;
     canvas.width = 900;
 }
+else {
+    canvas.height = 1500;
+    canvas.width = 3000;
 }
 setInterval(function() {
     window.requestAnimationFrame(drawing);
@@ -231,5 +231,5 @@ function randomH(){
 function score(){
     ctx.font= font +'px sans-serif';
     ctx.fillText("Счёт: " + points, canvas.width/2 - font, font);
-    ctx.fillText("Лучший счёт: " + topscore, canvas.width/2 - font*3, font*2);
+    ctx.fillText("Лучший счёт: " + topscore, canvas.width/2 - (font*4), font*2);
 }
