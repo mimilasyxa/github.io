@@ -27,7 +27,7 @@ else var topscore = window.localStorage.getItem("score");
 canvas.height = 1500;
 canvas.width = 3000;
 
-if (window.innerWidth < 800){
+if (window.innerWidth < 900){
     font = 40;
     box.style.display = "flex";
     pixel = 50;
