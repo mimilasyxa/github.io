@@ -23,7 +23,7 @@ if (window.localStorage.getItem("score") == null) {
     var topscore = 0;
 }
 else var topscore = window.localStorage.getItem("score");
-
+window.onload = function(){
 canvas.height = 1500;
 canvas.width = 3000;
 
@@ -33,6 +33,7 @@ if (window.innerWidth < 900){
     pixel = 50;
     canvas.height = 1200;
     canvas.width = 900;
+}
 }
 setInterval(function() {
     window.requestAnimationFrame(drawing);
