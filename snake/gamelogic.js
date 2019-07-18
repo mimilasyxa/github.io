@@ -8,10 +8,11 @@ var prev_x = [];
 var prev_y = [];
 var snake_eat = false;
 var length = 1;
-var pixel = 30;
+var pixel = 50;
 var points = 0;
-var font = 20;
+var font = 40;
 var box = document.querySelector(".arrows");
+var body = document.querySelector("body");
 var arrows = {
     up : document.querySelector("#up"), 
     right : document.querySelector("#right"), 
@@ -23,21 +24,18 @@ if (window.localStorage.getItem("score") == null) {
 }
 else var topscore = window.localStorage.getItem("score");
 
-canvas.height = document.documentElement.clientHeight;
-canvas.width = document.documentElement.clientWidth;
+canvas.height = 1500;
+canvas.width = 3000;
 
-if (canvas.width < 1000){
+if (window.innerWidth < 800){
     font = 40;
     box.style.display = "flex";
     pixel = 50;
+    canvas.height = 1200;
+    canvas.width = 900;
 }
 setInterval(function() {
     window.requestAnimationFrame(drawing);
-    for (var i = 0; i < length ; i++){
-    if (length> 3 && ( snake[0].x == prev_x[prev_x.length - (i + 2)]) && (snake[0].y == prev_y[prev_y.length - (i+2)])){
-        length = i;
-    }
-}
 },1000/10);
 
 class Snake {
@@ -60,20 +58,40 @@ class Snake {
         prev_x.shift();
         prev_y.shift();
         }
+        this.saveScore();
         if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
-            snake_moving = "stop";
-            if (window.localStorage.getItem("score")<points){
-            window.localStorage.setItem("score", points);
-            topscore = window.localStorage.getItem("score");
+            switch (snake_moving){
+                case "left":
+                    this.x = canvas.width;
+                    break;
+                case "right":
+                    this.x = 0 - pixel;
+                    break;
+                case "up":
+                    this.y = canvas.height;
+                    break;
+                case "down":
+                    this.y = 0;
+                    break;
             }
-            points = 0;
-            length=1;
-            this.x = randomW();
-            this.y = randomH();
+         
         }
     }
     increase(){
         length++;
+    }
+    saveScore(){
+        if (window.localStorage.getItem("score")<points){
+        window.localStorage.setItem("score", points);
+        topscore = window.localStorage.getItem("score");
+            }
+    }
+    death(){
+        snake_moving = "stop";
+        points = 0;
+        length=1;
+        this.x = randomW();
+        this.y = randomH();
     }
 }
 
@@ -134,14 +152,22 @@ function drawing(){
     score();
     ctx.fill();
     ctx.closePath();
+    controlDetection()
 }
 
 setInterval(function(){
     if (points == 0){
     }
     else points--;
+    for (var i = 0; i < length ; i++){
+        if (length> 3 && ( snake[0].x == prev_x[prev_x.length - (i + 2)]) && (snake[0].y == prev_y[prev_y.length - (i+2)])){
+            snake[0].death();
+       
+        }
+    }
 },1000/2);
 
+function controlDetection(){
 document.addEventListener( "keydown" , (e)=> {
     switch (e.keyCode) {
         case 87:
@@ -182,13 +208,13 @@ document.addEventListener("touchstart", (e) => {
         break;
     }
 })
-
+}
 function randomW(){
     let w;
     do {
         w = Math.round(Math.random() * 1000);
     }
-    while (w > canvas.width || w % pixel);
+    while (w >= canvas.width || !(w % pixel == 0));
     return w;
 }
 
@@ -197,7 +223,7 @@ function randomH(){
     do {
         h = Math.round(Math.random() * 1000);
     }
-    while (h > canvas.height || h % pixel);
+    while (h > canvas.height || !(h % pixel == 0));
     return h;
 }
 
