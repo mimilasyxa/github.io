@@ -18,6 +18,10 @@ var arrows = {
     down : document.querySelector("#down"), 
     left : document.querySelector("#left"), 
 };
+if (window.localStorage.getItem("score") == null) {
+    var topscore = 0;
+}
+else var topscore = window.localStorage.getItem("score");
 
 canvas.height = document.documentElement.clientHeight;
 canvas.width = document.documentElement.clientWidth;
@@ -60,8 +64,8 @@ class Snake {
             snake_moving = "stop";
             if (window.localStorage.getItem("score")<points){
             window.localStorage.setItem("score", points);
+            topscore = window.localStorage.getItem("score");
             }
-            else
             points = 0;
             length=1;
             this.x = randomW();
@@ -200,5 +204,5 @@ function randomH(){
 function score(){
     ctx.font= font +'px sans-serif';
     ctx.fillText("Счёт: " + points, canvas.width/2 - font, font);
-    ctx.fillText("Лучший счёт: " + window.localStorage.getItem("score"), canvas.width/2 - font*3, font*2);
+    ctx.fillText("Лучший счёт: " + topscore, canvas.width/2 - font*3, font*2);
 }
