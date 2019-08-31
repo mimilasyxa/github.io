@@ -1,0 +1,43 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    height: calc(100% - 2px);
+    margin:auto;
+    border: 1px solid black;
+}
+
+.button-place {
+    width: 100%;
+    height: 20%;
+    border:1px solid black;
+}
+
+.click {
+    border-radius: 50%;
+    width: 15%;
+    height: 100%;
+    margin:0 42.5% 0 42.5%;
+}
+
+.counter {
+    margin: auto;
+    width: auto;
+    text-align: center;
+}
+
+.units {
+    display: flex;
+    width: 100%;
+    height: 10%;
+}
+
+.unit {
+    width: 20%;
+    height: 100%;
+}
