@@ -40,4 +40,14 @@ html,body {
 .unit {
     width: 20%;
     height: 100%;
+    position: relative;
+}
+
+.units_quantity {
+    text-align: center;
+    display: flex;
+}
+
+span {
+    width: 20%;
 }
