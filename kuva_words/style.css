@@ -6,38 +6,61 @@ html,body{
 }
 
 img {
-    max-width:40%;
+    max-width:10%;
     height:auto;
-    animation: swapping  2s infinite ease-in-out;
+ 
 }
 
 .word{
-    margin: 0 5% 0 5%;
+    position: absolute;
 }
 
 .first {
-    margin-left: 30%;
+    left:45%;
+    animation: first_word infinite 1s ease-out;
 }
 
-.container {
-    position: absolute;
-    align-items: center;
-    top:25%;
-    left: 38%;
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
+.second {
+    left:55%;
+    top:22%;
+    animation: second_word infinite 1s ease-out;
 }
 
-@keyframes swapping {
+.third {
+    left:35%;
+    top:22%;
+    animation: third_word infinite 1s ease-out;
+}
+
+@keyframes first_word{
     from {
-
+        left:45%;
+        top:0;
     }
-    50% {
-        transform: rotate(180deg);
+    to {
+        left:55%;
+        top:22%;
     }
-    100% {
+}
 
+@keyframes second_word{
+    from {
+        left:55%;
+        top:22%;
     }
+    to {
+        left:35%;
+        top:22%;
+    }
+}
 
+@keyframes third_word{
+    from {
+        left:35%;
+        top:22%;
+    }
+    to {
+        left:45%;
+        top:0;
+    }
 }
