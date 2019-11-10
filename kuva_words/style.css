@@ -21,14 +21,14 @@ img {
 }
 
 .second {
-    left:55%;
-    top:22%;
+    left:53%;
+    top:24%;
     animation: second_word infinite 1s ease-out;
 }
 
 .third {
-    left:35%;
-    top:22%;
+    left:37%;
+    top:24%;
     animation: third_word infinite 1s ease-out;
 }
 
@@ -38,26 +38,26 @@ img {
         top:0;
     }
     to {
-        left:55%;
-        top:22%;
+        left:53%;
+        top:24%;
     }
 }
 
 @keyframes second_word{
     from {
-        left:55%;
-        top:22%;
+        left:53%;
+        top:24%;
     }
     to {
-        left:35%;
-        top:22%;
+        left:37%;
+        top:24%;
     }
 }
 
 @keyframes third_word{
     from {
-        left:35%;
-        top:22%;
+        left:37%;
+        top:24%;
     }
     to {
         left:45%;
