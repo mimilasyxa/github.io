@@ -1,0 +1,43 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width:40%;
+    height:auto;
+    animation: swapping  2s infinite ease-in-out;
+}
+
+.word{
+    margin: 0 5% 0 5%;
+}
+
+.first {
+    margin-left: 30%;
+}
+
+.container {
+    position: absolute;
+    align-items: center;
+    top:25%;
+    left: 38%;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@keyframes swapping {
+    from {
+
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+
+    }
+
+}

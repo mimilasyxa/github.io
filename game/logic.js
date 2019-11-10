@@ -12,7 +12,7 @@ if (game_status = "menu"){
     ctx.font = "20px Arial";
     ctx.fill();
     ctx.stroke();
-    printText("НАЧАТЬ");
+    printText("СОЗДАТЬ КОМНАТУ");
 }
 function screenColor(color){
     ctx.fillStyle = color;
