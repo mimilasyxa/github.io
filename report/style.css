@@ -1,0 +1,47 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.info{
+	text-align: center;
+}
+
+span {
+	font-size: 110%;
+	padding-right: 5px;
+}
+
+.container{
+	width: 50%;
+	margin: 0 25% 0 25%;
+}
+
+.dsa {
+	position: relative;
+	text-align: justify;
+}
+
+.report{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+img {
+	width: 50%;
+	margin: 0 25% 0 25%;
+}
+
+.double_img {
+	margin: 2% 0 2% 0;
+}
+
+p {
+	margin:4px 0 2px 0;
+	padding: 4px 0 2px 0;
+}
+.small_img {
+	width: 40%;
+	height: 70%;
+	margin: 15% 5% 15% 5%;
+}

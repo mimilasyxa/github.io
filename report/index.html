@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Отчёт по SSH</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class = "info">Secure Shell (SSH)<p>
+	Отчёт по лабораторной работе<p> 
+	Саморуков Александр<p>
+	2020-02-23
+	</div>
+	<div class="container">
+		<div class="blocks">
+				<p><span>1.1</span>В качестве SSH клиента был выбран PuTTY. С его помощью был получен санкционированный доступ к удалённой системе inco@10.0.11.177</p>
+				<div class="report">
+					<img src="images/inco.png" alt="Настройки Putty">
+					</div>
+		</div>
+		<div class="blocks">
+				<p><span>1.2</span>После изучения списка систем с общим доступом был выбран sdf.org, после подключения к системе был пройден этап регистрации и получен доступ.</p>
+				<div class="report">
+					<img class="double_img" src="images/sdf_reg.PNG">
+					<img class="double_img" src="images/sdf_chat.PNG">
+					</div>
+		</div>
+		<div class="blocks">
+				<p><span>1.3</span>Терминальный сеанс с удалённым сервером был записан с помощью встроенной функции записи логов в Putty.</p>
+				<div class="report">
+					<img class="double_img" src="images/putty_logs.png">
+					<img class="small_img" src="images/logs.PNG">
+					</div>
+		</div>
+		<div class="blocks">
+				<p><span>1.4</span>В моём случае доступ к интернету был ограничен, поэтому Putty был настроен на использование proxy с помощью cntml.</p>
+				<div class="report">
+					<img class="double_img" src="images/putty_proxy.png">
+					<img class="small_img" src="images/cntlm_config.PNG">
+					</div>
+		</div>
+		<div class="blocks">
+				<p><span>1.5</span>Для сохранения настроек Putty, используемых для доступа к серверу, в отдельный файл необходимо экспортировать ветку Компьютер\HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions </p>
+		</div>
+		<div class="blocks">
+				<p><span>1.6</span>Была сгенерирована пара ключей с помощью PuttyGen, после этого ключи были записаны в файл ./ssh/authorized_keys, теперь для подключения к серверу не требуется ssh ключ и его можно удалить из Putty.<button class="key"> [KEY] </button><a href="/files/public_key" download="/files/public_key">Скачать Public ключ</a></p>
+				<div class="report">
+					<img src="images/putty_keygen.png">
+					</div>
+		</div>
+		<div class="blocks">
+				<p><span>1.7</span>В pagent был загружен закрытый ключ, который позволяет зайди на удалённый сервер без ввода пароля, если убрать его то будет необходимо сново вводить пароль</p>
+				<div class="report">
+					<img class="double_img" src="images/pageant.png">
+					<img class="small_img" src="images/inco_nopass.png">
+					</div>
+		</div>
+	</div>
+	<script> let key = document.querySelector(".key")
+			 key.addEventListener("mouseup", function(){
+				 alert("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuXr7VCzAWV8eVv/A/LvlbSDiz7+PCdH1/+Myv1DGs")
+			 })
+	</script>
+</body>
+</html>
