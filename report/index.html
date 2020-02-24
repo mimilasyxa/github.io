@@ -15,7 +15,8 @@
 		<div class="blocks">
 				<p><span>1.1</span>В качестве SSH клиента был выбран PuTTY. С его помощью был получен санкционированный доступ к удалённой системе inco@10.0.11.177</p>
 				<div class="report">
-					<img src="images/inco.png" alt="Настройки Putty">
+					<img class="double_img"src="images/inco.png" alt="Настройки Putty">
+					<img class="small_img"src="images/putty_inco.png" alt="Подключение к inco">
 					</div>
 		</div>
 		<div class="blocks">
@@ -55,6 +56,12 @@
 					<img class="small_img" src="images/inco_nopass.png" alt="Подключение к удалённому серверу без пароля">
 					</div>
 		</div>
+		<div class="blocks">
+			<p><span>2.1</span>С помощью pscp на удалённый сервер были переданы два файла <b>proc3.exe</b> и <b>task.txt</b>, для передачи файлов была использована команда <b>pscp.exe [Путь до файла на машине] [Путь назначения] </b> </p>
+			<div class="report">
+				<img  src="images/pscp.png" alt="Проверка что файлы находятся на сервере">
+				</div>
+	</div>
 	</div>
 	<script>let key = document.querySelector(".key")
 			 key.addEventListener("mouseup", function(){
