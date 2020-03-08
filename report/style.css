@@ -28,6 +28,11 @@ span {
 	flex-wrap: wrap;
 }
 
+.report_text{
+	padding-top: 20px;
+	width: 50%;
+}
+
 img {
 	width: 50%;
 	margin: 0 25% 0 25%;

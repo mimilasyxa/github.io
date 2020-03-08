@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html>
+		<!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Отчёт по SSH</title>
@@ -15,15 +15,45 @@
 		<div class="blocks">
 				<p><span>1.1</span>В качестве SSH клиента был выбран PuTTY. С его помощью был получен санкционированный доступ к удалённой системе inco@10.0.11.177</p>
 				<div class="report">
-					<img class="double_img"src="images/inco.png" alt="Настройки Putty">
-					<img class="small_img"src="images/putty_inco.PNG" alt="Подключение к inco">
+					<img src="images/inco.png" alt="Настройки Putty">
+					<div class="report_text"><pre>Using username "inco".
+inco@10.0.11.177's password: 
+Linux kc203-03 4.9.0-11-amd64 #1 SMP Debian 4.9.189-3 (2019-09-02) x86_64
+						
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+						
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Feb 13 19:29:15 2020 from 10.0.22.220</pre></div>
 					</div>
 		</div>
 		<div class="blocks">
 				<p><span>1.2</span>После изучения списка систем с общим доступом был выбран sdf.org, после подключения к системе был пройден этап регистрации и получен доступ.</p>
 				<div class="report">
-					<img class="double_img" src="images/sdf_reg.PNG" alt="Регистрация на sdf.org">
-					<img class="double_img" src="images/sdf_chat.PNG" alt="Сообщения пользователей в чате sdf.org">
+					<pre>
+login as: new
+
+You will now be connected to NEWUSER mkacct server.
+Please login as 'new' when prompted.
+
+THIS MAY TAKE A MOMENT .. Trying 205.166.94.20...
+[RETURN] s 		
+
+Connected to 205.166.94.20.
+Escape character is 'off'.	
+					</pre>
+					<pre>
+____________________________________________
+[members in 'thxmoo']
+						
+akulova.283asp@faeroes    mimilasyxa@faeroes
+						
+[25-Jan-20 02:30:00]
+[akulova.283asp] hello
+[mimilasyxa] helo
+</pre>
 					</div>
 		</div>
 		<div class="blocks">
@@ -37,7 +67,25 @@
 				<p><span>1.4</span>В моём случае доступ к интернету был ограничен, поэтому Putty был настроен на использование proxy с помощью cntml.</p>
 				<div class="report">
 					<img class="double_img" src="images/putty_proxy.png" alt="Настройки Proxy в Putty">
-					<img class="small_img" src="images/cntlm_config.PNG" alt="Конфиг cntlm">
+					<div class="report_text"><pre>
+### .cntlm.conf  -*- Default-Generic -*-
+Username        samorukov.283asp
+Domain          STUD
+						
+Auth            NTLMv2
+PassNTLMv2      z
+NTLMToBasic     no
+							
+Proxy           proxy-class.asu.ru:3168
+Listen          4780
+							
+### .cntlm.conf ends here						
+					</pre></div>
+Для того чтобы cntml использовал мой конфиг необходимо было написать в командной строке:		
+<pre>				
+H:\putty>cntlm.exe -c cntml.conf -I
+Password:
+</pre>
 					</div>
 		</div>
 		<div class="blocks">
@@ -52,14 +100,33 @@
 		<div class="blocks">
 				<p><span>1.7</span>В pagent был загружен закрытый ключ, который позволяет зайди на удалённый сервер без ввода пароля, если убрать его то будет необходимо сново вводить пароль</p>
 				<div class="report">
-					<img class="double_img" src="images/pageant.png" alt="Агент ключей Putty">
-					<img class="small_img" src="images/inco_nopass.png" alt="Подключение к удалённому серверу без пароля">
+					<img src="images/pageant.png" alt="Агент ключей Putty">
+<pre>
+Using username "inco".
+Authenticating with public key "ed25519-key-20200126" from agent
+Linux kc203-03 4.9.0-11-amd64 #1 SMP Debian 4.9.189-3 (2019-09-02) x86_64
+		
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+		
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Jan 30 19:33:18 2020 from 10.0.22.249
+</pre>
 					</div>
 		</div>
 		<div class="blocks">
 			<p><span>2.1</span>С помощью pscp на удалённый сервер были переданы два файла <b>proc3.exe</b> и <b>task.txt</b>, для передачи файлов была использована команда <b>pscp.exe [Путь до файла на машине] [Путь назначения] </b> </p>
 			<div class="report">
-				<img  src="images/pscp.PNG" alt="Проверка что файлы находятся на сервере">
+<pre>
+F:\fyu\lab1\putty>pscp.exe -load xx task.txt inco@10.0.11.247:.
+task.txt                    | 1 kB |   1.5 kB/s | ETA: 00:00:00 | 100%
+
+
+F:\fyu\lab1\putty>pscp.exe -load xx img2.jpg inco@10.0.11.247:
+proc3.exe.jpg                  | 226 kB | 226.6 kB/s | ETA: 00:00:00 | 100%
+</pre>
 				</div>
 	</div>
 	</div>
