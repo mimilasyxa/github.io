@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.container {
+    margin: 5% 15% 0 15%;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lesson {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button{
+    width: 28%;
+    height: 100%;
+    background-color: green;
+    margin: 2.5%;
+    text-align: center;
+}
+
+.button:hover{
+    background-color: lightgreen;
+}

@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body { 
+    background-image: url("img/background.png"); /* Путь к фоновому рисунку */
+    background-position: left bottom; /* Положение фона */
+    background-repeat: repeat; /* Повторяем фон по горизонтали */
+}
+
+.sign {
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.background{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    margin: 5% 5% 0 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: white;
+}
+
+.offers {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: white;
+    height: 100%;
+}
+
+
+.item {
+    margin: 5%;
+    text-align: center;
+    border-radius: 5%;
+}
+
+p {
+    padding: 15px 20px 15px 20px;
+}
+
+.item:hover{
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.1s ease;
+    background: black;
+    color:white;
+}
