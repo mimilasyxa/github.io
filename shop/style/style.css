@@ -135,4 +135,7 @@ button {
 	.item {
 		width:100%;
 	}
+    .login_form{
+        width: 50%;
+    }
 }
