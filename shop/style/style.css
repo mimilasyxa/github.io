@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 14pt;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+.picture {
+    width: 30%;
+    height: 100%;
+}
+
+img {
+	border: 1px black solid;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    margin: auto;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    margin-top: 1%;
+    flex-wrap: wrap;
+}
+.login {
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+.content {
+    width: 100%;
+    height: 80%;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 70%;
+    border: 1px black solid;
+    height: 20%;
+    min-height: fit-content;
+}
+
+.description {
+	border: 1px black solid;
+    word-wrap: break-word;
+    width: 40%;
+    height: 100%;
+}
+
+.buyout_menu {
+	border: 1px black solid;
+    width: 30%;
+    height: 100%;
+}
+
+span {
+    width: 60%;
+}
+input {
+    text-align: center;
+    width: 50%;
+}
+
+.name , .cost , .quantity, .author{
+    width: 100%;
+    height: 17%;
+}
+
+button {
+    text-align: center;
+    width: 95%;
+	margin: auto;
+    height: 20%;
+    font-size: 8pt;
+    background-color: green;
+}
+
+.btn{
+    width: 50%;
+    height: 100%;
+}
+
+.log_event {
+    color:red;
+    text-align: center;
+}
+
+.greeting {
+    text-align: center;
+}
+
+.basket {
+    background-color: white;
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: 1%;
+    right: 20%;
+}
+@media screen (max-width: 700px) {
+	.container {
+		Width:100%;
+	}	
+}
