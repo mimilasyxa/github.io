@@ -123,7 +123,7 @@ button {
 }
 @media screen and (max-width: 700px) {
 	* {
-		font-size:9px;
+		font-size:7px;
 	}
 	.container {
 		width:100%;
