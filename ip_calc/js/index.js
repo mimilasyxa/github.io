@@ -13,21 +13,6 @@ let ip_input = document.querySelector("#ip"),
     network_bin = [],
     network_number = 0;
 
-function checkInputs(mask_array,ip_array){
-    for (var i = 0; i < mask_array.length - 1; i++){
-        if (mask_array[i] < mask_array[i+1] || mask_array.length < 4 || ((isNaN(mask_array[i]) == true))){
-            return false;
-        }
-        else return true;
-    }
-    for (var i = 0; i < ip_array.length; i++){
-        if ((isNaN(mask_array[i]) == true || ip_array.length < 4)){
-            return false;
-        }
-        else return true;
-    }
-}
-
 btn.addEventListener("click", ()=>{
     ip_array = ip_input.value.split(".");
     mask_array = mask_input.value.split(".");
@@ -42,6 +27,22 @@ btn.addEventListener("click", ()=>{
     }
 
 })
+
+function checkInputs(mask_array,ip_array){
+    for (var i = 0; i < mask_array.length - 1; i++){
+        if (mask_array[i] < mask_array[i+1] || mask_array.length < 4 || ((isNaN(mask_array[i]) == true)) || (mask_array[i] > 255 || mask_array[i] < 0) || (mask_array[3] > 255 || mask_array[3] < 0)){
+            return false;
+        }
+        else return true;
+    }
+    for (var i = 0; i < ip_array.length; i++){
+        if ((isNaN(ip_array[i]) == true || ip_array.length < 4) || (ip_array[i] > 255 || ip_array[i] < 0)){
+            return false;
+        }
+        else return true;
+    }
+}
+
 
 function getFirstnLast(){
     var first_ip= [];
