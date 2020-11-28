@@ -31,7 +31,8 @@ btn.addEventListener("click", ()=>{
 
 function checkMask(mask_array){
     for (var i = 0; i < mask_array.length - 1; i++){
-        if (mask_array[i] < mask_array[i+1] || mask_array.length < 4 || ((isNaN(mask_array[i]) == true)) || (mask_array[i] > 255 || mask_array[i] < 0) || (mask_array[3] > 255 || mask_array[3] < 0)){
+        if (Number(mask_array[i]) < Number(mask_array[i+1]) || mask_array.length < 4 || ((isNaN(mask_array[i]) == true)) || (mask_array[i] > 255 || mask_array[i] < 0) || (mask_array[3] > 255 || mask_array[3] < 0)){
+            console.log(i);
             return false;
         }
     }
