@@ -21,7 +21,7 @@ setInterval(maindraw, 10);
 ////////////////////////////////////////////////////////////////
 //Так сказать лазер который будет указывать куда полетит шарик//
 ////////////////////////////////////////////////////////////////
-canvas.addEventListener("mousemove", (e)=>{
+document.addEventListener("mousemove", (e)=>{
     mouseX = e.clientX - canvas.offsetLeft;
     mouseY = e.clientY;
 })
@@ -29,4 +29,10 @@ canvas.addEventListener("mousemove", (e)=>{
 document.addEventListener("click", ()=>{
     ball.status = "play";
     ball.dy = -ball.dy;
+    if (mouseX < ball.x){
+        ball.dx = -Math.abs(ball.dx);
+    }
+    else {
+        ball.dx = Math.abs(ball.dx);
+    }
 })
