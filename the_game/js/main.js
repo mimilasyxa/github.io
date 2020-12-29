@@ -28,11 +28,16 @@ document.addEventListener("mousemove", (e)=>{
 
 document.addEventListener("click", ()=>{
     ball.status = "play";
-    ball.dy = -ball.dy;
-    if (mouseX < ball.x){
-        ball.dx = -Math.abs(ball.dx);
-    }
-    else {
-        ball.dx = Math.abs(ball.dx);
-    }
+    findSpeed(mouseX, mouseY, ball);
 })
+
+function findSpeed(mouseX, mouseY, ball){
+    var x = Math.abs(mouseX - ball.x);
+    var y = Math.abs(mouseY - ball.y);
+    var sin = x / Math.sqrt((Math.pow(x,2) + Math.pow(y,2)));
+    var cos = y / Math.sqrt((Math.pow(x,2) + Math.pow(y,2)));
+    ball.dx = 20 * sin; 
+    ball.dy = -(30 * cos);
+    console.log("dx = " + ball.dx);
+    console.log("dy = " + ball.dy);
+}
