@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    border-left: 1px white solid;
+    border-right: 1px white solid;
+    background-color: black;
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+}
