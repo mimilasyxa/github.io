@@ -28,7 +28,6 @@ function createDIV(value, parent){
     let string = "";
     div = document.createElement("div");
     origin_string = value.split(" ")
-    console.log(origin_string.length);
     if (origin_string[0].length == 2){
         if (origin_string.length == 4){
             string += origin_string[1] + "_" +  origin_string[2] + "_" + origin_string[3];
