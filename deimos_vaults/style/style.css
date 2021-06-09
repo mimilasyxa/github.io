@@ -43,4 +43,5 @@ html, body{
 
 .reward {
     width: 100%;
+    border-bottom: black 1px solid;
 }

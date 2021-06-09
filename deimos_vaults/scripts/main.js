@@ -25,8 +25,32 @@ setTimeout(function(){
 let items = Array.from(document.querySelectorAll(".info_item"));
 
 function createDIV(value, parent){
+    let string = "";
     div = document.createElement("div");
-    div.innerHTML = value;
+    origin_string = value.split(" ")
+    console.log(origin_string.length);
+    if (origin_string[0].length == 2){
+        if (origin_string.length == 4){
+            string += origin_string[1] + "_" +  origin_string[2] + "_" + origin_string[3];
+        }
+        if (origin_string.length == 3){
+            string += origin_string[1] + "_" +  origin_string[2];
+        }
+        if (origin_string.length == 2){
+            string += origin_string[1];
+        }
+    } else {
+        if (origin_string.length == 3){
+            string += origin_string[0] + "_" +  origin_string[1] + "_" + origin_string[2];
+        }
+        if (origin_string.length == 2){
+            string += origin_string[0] + "_" +  origin_string[1];
+        }
+        if (origin_string.length == 1){
+             string += origin_string[0];
+        }
+    }
+    div.innerHTML = "<a href='https://warframe.fandom.com/wiki/" + string +"'>" + value + "</a>"
     div.classList.add("reward");
     parent.appendChild(div);
 }
