@@ -39,6 +39,9 @@ function createDIV(value, parent){
             string += origin_string[1];
         }
     } else {
+        if (origin_string.length == 4){
+            string += origin_string[0] + "_" +  origin_string[1] + "_" + origin_string[2] + "_" + origin_string[3];
+        }
         if (origin_string.length == 3){
             string += origin_string[0] + "_" +  origin_string[1] + "_" + origin_string[2];
         }
