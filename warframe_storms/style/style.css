@@ -67,3 +67,9 @@ html, body{
 .golden {
     color: gold;
 }
+
+.update {
+    position: absolute;
+    left: 25%;
+    top: 10%;
+}
