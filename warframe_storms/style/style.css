@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.package {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+.letter_item {
+    display: flex;
+    margin-left: 20%;
+    font-size: 72pt;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 80%;
+}
+
+.package-title {
+    display: inline-flex;
+    position: absolute;
+    top: 13%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+}
+
+.title-item{
+    width: 15%;
+}
+
+.title-location{
+    width: 40%;
+}
+
+.info_item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    width: 20%;
+}
+
+.fissure {
+    display: inline-flex;
+    width: 100%;
+    border-bottom: black 1px solid;
+}
+
+.golden {
+    color: gold;
+}
