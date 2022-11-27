@@ -62,7 +62,7 @@ function createFissure(parent, value) {
         } else {
             div.classList.add('title-item');
         }
-        if (value.node == 'Рудники Ню-Гуа (Нептун)') {
+        if (value.node == 'Рудники Ню-гуа (Нептун)') {
             div.classList.add('golden');
         }
         div.innerHTML = value[MISSION_INFO[i]];
