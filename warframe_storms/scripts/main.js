@@ -72,6 +72,8 @@ function createFissure(parent, value) {
 
 function filterResponse(result, tier) {
     if (result.tier === tier) {
-        return result
+        if (!result.eta.includes('-')){
+            return result
+        }
     }
 }
