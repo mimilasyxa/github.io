@@ -6,74 +6,75 @@ const TIERS = [
     'Реквием'
 ];
 
+const railjackBlock = document.querySelector('.railjack');
+const normalBlock = document.querySelector('.normal');
+
+const BLOCKS = [
+    railjackBlock,
+    normalBlock
+];
+
 const MISSION_INFO = [
     'tier', 'missionType', 'enemy', 'node', 'eta'
-]
+];
 
-let items = Array.from(document.querySelectorAll(".package"));
+getFissures().then(response => fillFissures(filterResponse(response)));
 
+setInterval(async () => {
+    getFissures().then((response) => {
+        clearPage();
+        fillFissures(filterResponse(response));
+    });
+}, 30000);
 
-var xhr = new XMLHttpRequest()
-setInterval(()=> {
-    xhr.open(
-        'GET',
-        'https://api.warframestat.us/PC/fissures',
-        true
-    )
-    xhr.send()
-}, 8000)
-
-
-
-setInterval(function () {
-    clearPage();
-    let $result = JSON.parse(xhr.responseText);
-    for (var i = 0; i < TIERS.length; i++) {
-        for (var k = 0; k < $result.length; k++) {
-            if ($result[k].isStorm === true) {
-                if ($fissure = filterResponse($result[k], TIERS[i])) {
-                    createDIV(filterResponse($result[k], TIERS[i]), items[0]);
-                }
-            }
-        }
-    }
-}, 10000)
-
-function createDIV(value, parent) {
-    let div = document.createElement("div");
-    div.classList.add("fissure");
-    parent.appendChild(div);
-    createFissure(div, value);
+async function getFissures()
+{
+    return await fetch('https://api.warframestat.us/PC/fissures').
+    then((response) => response.json());
 }
 
-function clearPage() {
-    let $fissures = document.querySelectorAll('.fissure')
+function filterResponse(response)
+{
+    let filteredResponse = [];
+    TIERS.forEach((tier) => {
+        response.forEach((fissure) => {
+            if (fissure.tier === tier) {
+                filteredResponse.push(fissure);
+            }
+        })
+    });
 
-    $fissures.forEach($fissure => {
-        $fissure.remove();
+    return filteredResponse;
+}
+
+function clearPage()
+{
+    BLOCKS.forEach((block) => {
+        let children = block.children;
+        for (let i=children.length - 1; i >= 1; i--) {
+            children[i].remove();
+        }
     })
 }
 
-function createFissure(parent, value) {
-    for (let i = 0; i < MISSION_INFO.length; i++) {
-        div = document.createElement('div')
-        if (MISSION_INFO[i] == 'node') {
-            div.classList.add('title-location');
-        } else {
-            div.classList.add('title-item');
+function fillFissures(response)
+{
+    response.forEach((fissure) => {
+        let fissureItem = document.createElement('div');
+        let fissureBlock = fissure.isStorm
+            ? railjackBlock
+            : normalBlock;
+
+        fissureItem.classList.add('fissure-mission');
+
+        for (let i=0; i < MISSION_INFO.length; i++) {
+            let fissureHeader = document.createElement('div');
+            fissureHeader.classList.add('header-item')
+            fissureHeader.innerHTML = fissure[MISSION_INFO[i]];
+
+            fissureItem.appendChild(fissureHeader);
         }
-        if (value.node == 'Рудники Ню-гуа (Нептун)') {
-            div.classList.add('golden');
-        }
-        div.innerHTML = value[MISSION_INFO[i]];
-        parent.appendChild(div);
-    }
+        fissureBlock.appendChild(fissureItem);
+    })
 }
 
-function filterResponse(result, tier) {
-    if (result.tier === tier) {
-        if (!result.eta.includes('-')){
-            return result
-        }
-    }
-}

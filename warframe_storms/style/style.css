@@ -1,75 +1,24 @@
-* {
-    padding: 0;
-    margin: 0;
+body {
+    display: flex;
 }
 
-html, body{
-    width: 100%;
+.fissure-block {
+    margin: 5% auto 0 auto;
     height: 100%;
+    width: 45%;
 }
 
-.package {
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-}
-
-.top {
+.fissure-header {
     display: flex;
-    width: 100%;
-    height: 20%;
 }
 
-.letter_item {
+.fissure-mission {
+    margin-top: 15px;
     display: flex;
-    margin-left: 20%;
-    font-size: 72pt;
 }
 
-.content {
+.header-item {
     display: flex;
-    width: 100%;
-    height: 80%;
-}
-
-.package-title {
-    display: inline-flex;
-    position: absolute;
-    top: 13%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-}
-
-.title-item{
-    width: 15%;
-}
-
-.title-location{
-    width: 40%;
-}
-
-.info_item {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
+    margin: 0 auto 0 auto;
     width: 20%;
-}
-
-.fissure {
-    display: inline-flex;
-    width: 100%;
-    border-bottom: black 1px solid;
-}
-
-.golden {
-    color: gold;
-}
-
-.update {
-    position: absolute;
-    left: 25%;
-    top: 10%;
 }
