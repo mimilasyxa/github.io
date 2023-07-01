@@ -1,9 +1,10 @@
 body {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .fissure-block {
-    margin: 5% auto 0 auto;
+    margin: 0 auto 0 auto;
     height: 100%;
     width: 45%;
 }
@@ -17,8 +18,16 @@ body {
     display: flex;
 }
 
+.fissure-mission:nth-last-child(1) {
+    margin-bottom: 20px;
+}
+
 .header-item {
     display: flex;
     margin: 0 auto 0 auto;
     width: 20%;
+}
+
+.main-header {
+    border-bottom: 1px black solid;
 }
