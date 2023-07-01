@@ -6,7 +6,7 @@ const TIERS = [
     'Реквием'
 ];
 let filteredResponse = [];
-
+const ZERO_VALUE_TIMER_REGEX = /(^0[A-Za-zа-яА-Я])|(\s0[A-Za-zа-яА-Я])/g;
 const EXPIRED = 'Закончилось';
 
 const REFRESH_TIMER_SECONDS = 120000;
@@ -44,7 +44,7 @@ setInterval(() => {
 
 async function getFissures()
 {
-    return await fetch('https://api.warframestat.us/PC/fissures').
+    return await fetch('https://api.warframestat.us/PC/fissures', { cache: "no-cache"}).
     then((response) => response.json());
 }
 
@@ -120,6 +120,6 @@ function getRemainingTime(expireAt)
         seconds = Math.floor((difference % (1000 * 60)) / 1000),
         result = hours + 'ч ' + minutes + 'м ' + seconds + 'с';
 
-    return result.replace(/(^0[A-Za-zа-яА-Я])|(\\s0[A-Za-zа-яА-Я])/, '');
+    return result.replaceAll(ZERO_VALUE_TIMER_REGEX, '');
 }
 
